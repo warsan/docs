@@ -1,83 +1,71 @@
-# Development setup
+# Настройка разработки
 
-This site uses [Vuepress](https://v1.vuepress.vuejs.org/) as static page generator. It is a static page generator based
-on [vue.js](https://vuejs.org/) and created to write the documentation of that framework.
+Этот сайт использует [Vuepress](https://v1.vuepress.vuejs.org/) как генератор статических страниц.  
+Этот генератор статических страниц, основан на [vue.js](https://vuejs.org/) и создан для написания документации по этой структуре.
 
-Vuepress is based on markdown files. Each HTML-page on the site has a corresponding markdown file in this repository.
+Vuepress основан на файлах markdown. Каждая HTML-страница сайта имеет соответствующий файл markdown в этом репозитории.
 
-# Requirements and recommended tools
+# Требования и рекомендуемые инструменты
 
-The following tools are required to build and develop the site.
+Для создания и развития сайта необходимы следующие инструменты:
 
-- NodeJS (latest LTS) and the corresponding version of `npm`
+- NodeJS (последний LTS) и соответствующая версия `npm`
 
-The following tools will help you developing
+Следующие инструменты помогут вам в разработке
 
-- A text editor, preferably an IDE with Markdown, JavaScript and CSS support
-  [Visual Studio Code](https://code.visualstudio.com/) or
-  [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/) are possible choices.
-- IDE-support for Vue.js, Markdown, JavaScript and Stylus
-- The [vue-devtools](https://github.com/vuejs/vue-devtools)
+- Текстовый редактор, предпочтительно IDE с поддержкой Markdown, JavaScript и CSS
+  [Visual Studio Code](https://code.visualstudio.com/) или
+  [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/) возможны варианты.
+- IDE-поддержка Vue.js, Markdown, JavaScript и Stylus
+- Также [vue-devtools](https://github.com/vuejs/vue-devtools)
 
 # Setup / Commands
 
-After cloning the repository you probaby want to run the following commands:
+После клонирования репозитория вы, вероятно, захотите выполнить следующие команды:
 
-- `npm install` (required) installs the dependencies libraries and is required for building the site.
-- `npm run dev` runs a webpack-dev-server, usually on port 8080. This server features live-reloading. Styles will
-  automatically be updated when you change the source files. Changes in markdown changes and Vue.js components will be
-  visible immediately. _Note that changes to the file `src/.vuepress/config.js` are not part of the live-reload and
-  require a restart of the command._
-- `npm run preview` should be run prior to creating a pull-request. It will clean the build-directories, run tests and
-  linters, the site. A production-like preview of the site can be viewed at port 9080
+- `npm install` (required) устанавливает библиотеки зависимостей и требуется для создания сайта.
+- `npm run dev` запускает webpack-dev-сервер, обычно на порту 8080. Этот сервер имеет функцию живой перезагрузки. Стили будут автоматически обновляться при изменении исходных файлов. Изменения в markdown changes и Vue.компоненты js будут видны сразу же.  
+_Обратите внимание, что изменения в файле `src/.vuepress/config.js` не являются частью live-reload и требуют перезапуска команды._
+- `npm run preview` должен быть запущен до создания pull-запроса. 
+Он будет очищать каталоги сборки, запускать тесты и линтеры, сайт. Предварительный просмотр сайта, похожий на производство, можно посмотреть в порту 9080
 
-Other commands are not needed as often:
+Другие команды нужны не так часто:
 
-- `npm run fix` trys to fix all `eslint` errors and runs `prettier` to format everything. This is also done in a
-  pre-commit hook so it should not be necessary to run this command manually.
-- `npm run clean` removes all cached and built files. This can be helpful if you have errors that you cannot explain and
-  that just won't go away.
-- The scripts `test`,`lint`, `format` and `build` just exist to make the other commands in the `package.json` more
-  readable.
+- `npm run fix` пытается исправить все `eslint` ошибки и запускает `prettier` чтобы всё отформатировать. Это также делается в ловушке перед фиксацией, поэтому нет необходимости запускать эту команду вручную.
+- `npm run clean` удаляет все кэшированные и встроенные файлы. Это может быть полезно, если у вас есть ошибки, которые вы не можете объяснить и которые просто не исчезнут.
+- Скрипты `test`,`lint`, `format` и `build` просто существуют, чтобы сделать другие команды в пакете `package.json` более читабельными.
 
-## Differences between dev-server and production
+## Различия между dev-сервером и производством
 
-The Vuepress site is a Vue.js application. While the dev-server runs the whole application in the browser, the
-production site is pre-rendered with subsequent changes running in the browser.
+Сайт Vuepress - это Vue.приложение js. В то время как dev-сервер запускает все приложение в браузере, рабочий сайт предварительно визуализируется с последующими изменениями, выполняемыми в браузере.
 
-Vue.js components that only work in the browser will work correctly in the dev-server, but will fail in production.
+Компоненты Vue.js, которые работают только в браузере, будут корректно работать на dev-сервере, но не будут работать в продакшене.
 
-See
+Подробнее см.
 [Browser API Access Restrictions](https://v1.vuepress.vuejs.org/guide/using-vue.html#browser-api-access-restrictions)
-for details.
 
-A few notes on the site and the build processes
+Несколько заметок о сайте и процессах сборки
 
-- The site uses the Vuepress default-theme with a few custom styles.
-- Markdown files in this repository automatically become HTML-files on the site.
+- На сайте используется тема по умолчанию Vuepress с несколькими настраиваемыми стилями.
+- Файлы Markdown в этом репозитории автоматически становятся HTML-файлами на сайте.
 
-## Files and directories
+## Файлы и каталоги
 
-The `src` folder contains all sources of the page. That includes
+Папка `src` содержит все источники страницы. Это включает в себя
 
-- `src/**/*.md`: Markdown files, one for each HTML files containing the actual content.
-- `src/.vuepress/styles`: [stylus](http://stylus-lang.com/) files that adjust the CSS styles of the website (TODO add
-  documentation link)
-- `src/.vuepress/components`: custom Vue.js components and Layouts created for this site (TODO add documentation link)
-- `src/.vuepress/public/`: root directory for public files that are copied to the site as-is.
-- `src/.vuepress/plugins/`: Vuepress-plugins created for this site.
+- `src/**/*.md`: Файлы Markdown, по одному для каждого HTML-файла, имеющего фактическое содержимое.
+- `src/.vuepress/styles`: [stylus](http://stylus-lang.com/) файлы,  корректирующие стили CSS веб-сайта (ссылка на добавление документации TODO)
+- `src/.vuepress/components`: пользовательские компоненты Vue.js и Layouts, созданные для этого сайта (TODO добавить ссылку документации)
+- `src/.vuepress/public/`: корневой каталог для общедоступных файлов, которые копируются на сайт как есть.
+- `src/.vuepress/plugins/`: Vuepress-плагины, созданные для этого сайта.
 
-# Deployment
+# Развёртывание
 
-The deployment has two phases:
+Развёртывание состоит из двух этапов:
 
-- The preview site at https://handlebars-draft.knappi.org is automatically updated when changes are pushed to the
-  `master`-branch. The Github-pages are hosted in the `gh-pages`-branch of this repository.
-- The production site (currently the temporary site https://handlebars-prod.knappi.org) is updated when changes are
-  pushed to the `production`-branch. The Github-pages for the production site are hosted in the `master`-branch of the
-  [docs-prod-ghpages](https://github.com/handlebars-lang/docs-prod-ghpages) repository.
+- Предварительный просмотр сайта по адресу https://handlebars-draft.knappi.org автоматически обновляется при перемещении изменений в ветку `master`. Страницы Github размещаются в ветви `gh-pages` этого репозитория.
+- Рабочий сайт (в настоящее время временный сайт https://handlebars-prod.knappi.org) обновляется, когда изменения помещаются в ветку `production`. Страницы Github для рабочего сайта размещаются в ветке `master` репозитория [docs-prod-ghpages](https://github.com/handlebars-lang/docs-prod-ghpages).
 
-In both cases, the deployment itself is performed via [Travis-CI job](https://travis-ci.org/handlebars-lang/docs)
+В обоих случаях само развертывание выполняется через [Travis-CI job](https://travis-ci.org/handlebars-lang/docs)
 
-The Travis-CI job uses the [handlebars-site-bot](https://github.com/handlebars-site-bot) account to update the
-github-pages of this repository.
+Задание Travis-CI использует учетную запись [handlebars-site-bot](https://github.com/handlebars-site-bot) для обновления github-страниц этого репозитория.
