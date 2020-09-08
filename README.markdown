@@ -1,10 +1,10 @@
-[![](https://api.travis-ci.org/handlebars-lang/docs.svg?branch=master)](https://travis-ci.org/handlebars-lang/docs)
+# Почему именно vuepress(?)
+
+[![svg](https://api.travis-ci.org/handlebars-lang/docs.svg?branch=master)](https://travis-ci.org/handlebars-lang/docs)
 
 Это репозиторий для нового сайта документации Handlebars.
 
-* Target-URL: https://handlebarsjs.com
-
-# Почему именно vuepress?
+* [Целевой URL:](https://handlebarsjs.com)
 
 В настоящее время существует множество генераторов статических страниц. Я предпочел [vuepress](https://v1.vuepress.vuejs.org) другим системам по нескольким причинам:
 
