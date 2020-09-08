@@ -1,17 +1,17 @@
-# In order to make the examples in this site recognizable, we generally use this data as their basis.
-# If you want to create new example, you can use parts of this data along with your templates, partials and helpers.
-# You don't have to use the same JSON structure, but using the same entities (i.e. people, Darmstadt, San Francisco)
-# would be nice. If you have to use new data, please add it to this file.
+# Чтобы сделать примеры на этом сайте узнаваемыми, мы обычно используем эти данные в качестве основы.
+# Если вы хотите создать новый пример, можете использовать части этих данных вместе с вашими шаблонами, партиалами и помощниками.
+# Вам не обязательно использовать ту же структуру JSON, но использовать одни и те же объекты (например, люди, Дармштадт, Сан-Франциско) было бы здорово. 
+# Если вам нужно использовать новые данные, добавьте их в этот файл.
 cities:
-  - name: Darmstadt
-    summary: Darmstadt is a city in <b>Hesse</b>, Germany
-    country: Germany
+  - name: Дармштадт
+    summary: Дармштадт - это город в <b>Гессе</b>, Германия
+    country: Германия
     location:
       north: 49.87
       east: 8.64
     population: 158254
-  - name: San Francisco
-    summary: San Francisco is the <b>cultural center</b> of <b>Northern California</b>
+  - name: Сан-Франциско
+    summary: Сан-Франциско - это <b>культурный центр</b> в <b>Северной Калифорнии</b>
     country: USA
     location:
       north: 37.73,

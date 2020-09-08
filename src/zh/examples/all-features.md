@@ -11,7 +11,7 @@ example:
     header: |
       {{persons.length}} persons found
     person: |
-      The person {{loud person.name}} is {{person.age}} years old.
+      Человеку {{loud person.name}} исполнилось {{person.age}} лет.
   preparationScript: |
     Handlebars.registerHelper('loud', function (aString) {
         return aString.toUpperCase()

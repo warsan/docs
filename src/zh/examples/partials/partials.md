@@ -11,7 +11,7 @@ example:
     header: |
       {{persons.length}} persons found
     person: |
-      The person {{person.name}} is {{person.age}} years old.
+      Человеку {{person.name}} исполнилось {{person.age}} лет.
   input:
     persons:
       - name: Nils
@@ -21,6 +21,7 @@ example:
       - name: Nelson
         age: 40
 ---
+# test
 
 ```handlebars
 test

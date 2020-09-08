@@ -5,17 +5,16 @@ tagline: Minimal templating on steroids
 actionText: Get Started →
 actionLink: /guide/
 features:
-  - title: Semantic templates
+  - title: Семантические шаблоны
     details: |
-      Handlebars provides the power necessary to let you build semantic templates effectively with no frustration.
-  - title: Mustache-compatible
+      Handlebars предоставляет возможности, необходимые для эффективного создания семантических шаблонов без каких-либо проблем.
+  - title: Mustache-совместимый
     details: |
-      Handlebars is largely compatible with Mustache templates. In most cases it is possible to swap out Mustache with
-      Handlebars and continue using your current templates.
+      Handlebars в значительной степени совместим с шаблонами Mustache. 
+      В большинстве случаев можно поменять Mustache на Handlebars и продолжить использование ваших текущих шаблонов.
   - title: Fast execution
     details: |
-      Handlebars compiles templates into JavaScript functions. This makes the template execution faster than most other
-      template engines.
+      Handlebars компилирует шаблоны в функции JavaScript. Это ускоряет выполнение шаблона по сравнению с большинством других шаблонизаторов.
 footer: MIT licensed | Copyright (C) 2011-2019 by Yehuda Katz
 ---
 

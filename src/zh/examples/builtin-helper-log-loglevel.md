@@ -13,5 +13,6 @@ example:
   input:
 ---
 
-Press F12 and open the dev-console to see the log output. In order to see debug output, you may need to configure your
-dev-tools properly.
+# Нажмите F12
+
+и откройте консоль разработчика, чтобы увидеть вывод журнала. Чтобы увидеть результаты отладки, вам может потребоваться правильно настроить инструменты разработчика

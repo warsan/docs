@@ -3,7 +3,7 @@ layout: InteractivePlaygroundLayout
 example:
   template: "{{> myPartial parameter=favoriteNumber }}"
   partials:
-    myPartial: "The result is {{parameter}}"
+    myPartial: "Результат - {{parameter}}"
   input:
     favoriteNumber: 123
 ---

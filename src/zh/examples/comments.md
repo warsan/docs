@@ -2,8 +2,8 @@
 layout: InteractivePlaygroundLayout
 example:
   template: |
-    {{! This comment will not show up in the output}}
-    <!-- This comment will show up as HTML-comment -->
-    {{!-- This comment may contain mustaches like }} --}}
+    {{! Этот комментарий не будет отображаться в выводе}}
+    <!-- Этот комментарий будет отображаться как HTML-комментарий. -->
+    {{!-- Этот комментарий может содержать mustaches вроде }} --}}
   input: {}
 ---

@@ -10,5 +10,5 @@ example:
       return new Handlebars.SafeString(result);
     });
   input:
-    text: Isn't this great?
+    text: Разве это не здорово?
 ---

@@ -15,5 +15,5 @@ example:
       firstname: Yehuda
       lastname: Katz
       url: "https://yehudakatz.com/"
-      text: "See Website"
+      text: "См. Веб-сайт"
 ---

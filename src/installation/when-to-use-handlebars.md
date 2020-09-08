@@ -1,17 +1,16 @@
-# When (not) to use Handlebars?
+# Когда (не) использовать Handlebars(?)
 
-This section should give you an overview over the strengths and weaknesses of Handlebars. Ideally, it enables you to see
-if handlebars fits your use case and make an informed decision about choosing handlebars or not.
+Этот раздел должен дать вам обзор сильных и слабых сторон руля.  
+В идеале это позволяет вам увидеть, подходят ли рули вашему варианту использования
+и принять обоснованное решение о выборе руля или нет.
 
-::: warning A note on using Handlebars in the browser
+::: предупреждение Примечание об использовании Handlebars в браузере
 
-Handlebars is a pure rendering engine. It works well if you want to allow people to write templates for rendering
-HTML-pages, e-mails or markdown files.
+Handlebars - это чистый движок рендеринга. Это хорошо работает, если вы хотите позволить людям писать шаблоны для рендеринга HTML-страниц, электронных писем или файлов разметки.
 
-It has **no** built-in support for **event-handling**, accessing **backend-services** or incremental **DOM updates**.
+У него **нет** встроенной поддержки **обработки событий**, доступа **серверных служб** или инкрементных **обновлений DOM**.
 
-If you want to build a **single-page application** and you want to handle user-input, you should probably look for a
-framework like
+Если вы хотите создать **одностраничное приложение** и хотите обрабатывать ввод данных пользователем, вам, вероятно, следует поискать такую ​​структуру, как
 
 - [Angular](https://angular.io/)
 - [Aurelia](https://aurelia.io/)
@@ -25,11 +24,11 @@ framework like
 
 :::
 
-# Pro Handlebars
+## Pro Handlebars
 
-- Handlebars is good for rendering in CLI-apps, non-HTML text content, server-side rendering of pure contents.
-- Handlebars has been ported to many programming languages (Java, Rust etc).
+- Handlebars хорош для рендеринга в CLI-приложениях, текстового контента, отличного от HTML, рендеринга чистого контента на стороне сервера.
+- Handlebars перенесен на многие языки программирования (Java, Rust и т. д.).
 
-# Contra Handlebars
+## Contra Handlebars
 
-- Handlebars is not good for fast (incremental) updates of the DOM, event-handling, frontend-backend communication.
+- Handlebars не подходят для быстрых (инкрементальных) обновлений DOM, обработки событий, взаимодействия внешнего и внутреннего интерфейса.

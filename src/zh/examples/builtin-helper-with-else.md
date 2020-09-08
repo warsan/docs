@@ -3,9 +3,9 @@ layout: InteractivePlaygroundLayout
 example:
   template: |+
     {{#with city}}
-    {{city.name}} (not shown because there is no city)
+    {{city.name}} (не показано, потому что нет города)
     {{else}}
-    No city found
+    Город не найден
     {{/with}}
   input:
     person:

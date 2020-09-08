@@ -6,4 +6,6 @@ example:
   input:
 ---
 
-Press F12 and open the dev-console to see the log output.
+# Нажмите F12
+
+и откройте консоль разработчика, чтобы увидеть вывод журнала.

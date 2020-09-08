@@ -13,5 +13,5 @@ example:
         lastname: Knappmeier
       - firstname: Yehuda
         lastname: Katz
-    prefix: Hello
+    prefix: Привет
 ---
