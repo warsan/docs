@@ -1,69 +1,69 @@
-# Precompiling templates
+# Предварительная компиляция шаблонов
 
-Using the Handlebars precompiler, you can precompile your Handlebars templates to save time on the client and reduce the
-required runtime size of the handlebars library.
+Используя прекомпилятор Handlebars, вы можете предварительно скомпилировать шаблоны Handlebars, чтобы сэкономить время на клиенте и уменьшить
+требуемый размер библиотеки handlebars во время выполнения.
 
-## Getting started
+## Приступая к работе
 
-First, you will need to have _Node.js and npm_. Go to [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-to find out how to do that on your OS.
+Во-первых, вам понадобятся _Node.js и npm_. Перейдите на [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+чтобы узнать, как это сделать в вашей ОС.
 
-Next, install the Handlebars npm package, which contains the precompiler.
+Затем установите пакет Handlebars npm, содержащий прекомпилятор.
 
 ```bash
 npm install -g handlebars
 ```
 
-Create a file name `example.handlebars` containing your template:
+Создайте файл с именем `example.handlebars`, содержащий ваш шаблон:
 
 <<< @/src/usage-examples/precompilation/example.handlebars
 
-Run the precompiler.
+Запускаем прекомпилятор.
 
 ```bash
 handlebars example.handlebars -f example.precompiled.js
 ```
 
-Include the Handlebars runtime and the precompile javascript.
+Включите среду выполнения Handlebars и предварительно скомпилированный javascript.
 
 <<< @/src/usage-examples/precompilation/index.html
 
-The runtime is also available for download on the [installation page](index.md#downloading-handlebars).
+Среда выполнения также доступна для загрузки на [странице установки](index.md#download-handlebars).
 
-## Optimizations
+## Оптимизация
 
-Because you are precompiling templates, you can also apply several optimization to the compiler. The first allows you to
-specify a list of the known helpers to the compiler
+Поскольку вы предварительно компилируете шаблоны, вы также можете применить несколько оптимизаций к компилятору. Первый позволяет
+указать список известных помощников компилятору
 
 ```bash
 handlebars <input> -f <output> -k each -k if -k unless
 ```
 
-The Handlebars compiler will optimize accesses to those helpers for performance. When all helpers are known at compile
-time, the `--knownOnly` option provides the smallest generated code that also provides the fastest execution.
+Компилятор Handlebars оптимизирует доступ к этим помощникам для повышения производительности. Когда все помощники известны при компиляции
+время, опция `--knownOnly` предоставляет наименьший сгенерированный код, который также обеспечивает самое быстрое выполнение.
 
-## Usage
+## Использование
 
 !HANDLEBARS_HELP!
 
-If using the precompiler's normal mode, the resulting templates will be stored to the Handlebars.templates object using
-the relative template name sans the extension. These templates may be executed in the same manner as templates. If using
-the simple mode the precompiler will generate a single javascript method. To execute this method it must be passed to
-the Handlebars.template method and the resulting object may be used as normal.
+При использовании обычного режима прекомпилятора полученные шаблоны будут сохранены в объекте Handlebars.templates с использованием
+относительное имя шаблона без расширения. Эти шаблоны могут выполняться так же, как и шаблоны. При использовании
+в простом режиме прекомпилятор сгенерирует единственный метод javascript. Для выполнения этого метода его необходимо передать в
+метод Handlebars.template и полученный объект можно использовать как обычно.
 
-## Precompiling Templates Inside NodeJS
+## Предварительная компиляция шаблонов внутри NodeJS
 
-If you wish to precompile templates from inside NodeJS--without invoking "handlebars" from the command line--that can be
-done with Handlebars.precompile. Transmit the string result of this function to your clients, and they can in turn parse
-that with Handlebars.template.
+Если вы хотите предварительно скомпилировать шаблоны изнутри NodeJS--без вызова «handlebars» из командной строки--это можно
+сделать с помощью Handlebars.precompile. Передайте строковый результат этой функции своим клиентам, и они, в свою очередь, смогут проанализировать
+это с Handlebars.template.
 
 <<< @/src/usage-examples/precompilation/precompile-in-nodejs.js
 
-The output will be the following:
+Результат будет следующим:
 
 <<< @/src/usage-examples/precompilation/precompile-in-nodejs.output.js
 
-On the client side you have Javascript along the lines of the following.
+На стороне клиента у вас есть Javascript следующего вида.
 
 ```js
 Handlebars.partials["test1"] = Handlebars.template({
@@ -71,16 +71,16 @@ Handlebars.partials["test1"] = Handlebars.template({
 });
 ```
 
-Finally, you can reference these templates dynamically in your Javascript.
+Наконец, вы можете динамически ссылаться на эти шаблоны в своем Javascript.
 
 ```js
 var result = Handlebars.partials["test1"]({ name: "yourname" });
-//do whatever you want with the result
+// делай что хочешь с результатом
 ```
 
-## Integrations
+## Интеграции
 
-Some npm-packages can be used to integrate the Handlebars precompiler into your build system (i.e. Webpack,
-Browserify...). Have a look at the integrations page:
+Некоторые пакеты npm могут использоваться для интеграции прекомпилятора Handlebars в вашу систему сборки. (i.e. Webpack,
+Browserify...). Взгляните на страницу интеграции:
 
 !button[Learn more: Integrations](integrations.md)
