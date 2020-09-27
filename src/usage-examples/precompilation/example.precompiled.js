@@ -7,7 +7,8 @@
             var helper, alias1 = container.propertyIsEnumerable;
 
             return "Handlebars <b>" +
-                container.escapeExpression(((helper = (helper = helpers.doesWhat || (depth0 != null ? depth0.doesWhat : depth0)) != null ? helper : container.hooks.helperMissing), (typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}), { "name": "doesWhat", "hash": {}, "data": data }) : helper))) +
+                container.escapeExpression(((helper = (helper = helpers.doesWhat || (depth0 != null ? depth0.doesWhat : depth0)) != null ? helper : container.hooks.helperMissing), 
+                (typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}), { "name": "doesWhat", "hash": {}, "data": data }) : helper))) +
                 "</b> предварительно скомпилирован!";
         },
         "useData": true

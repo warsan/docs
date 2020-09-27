@@ -13,6 +13,10 @@ export default {
       lang: "en-US",
       title: "Handlebars",
     },
+    "/ru/": {
+      lang: "ru-RU",
+      title: "Handlebars",
+    },
     "/zh/": {
       lang: "zh-CN",
       title: "Handlebars",

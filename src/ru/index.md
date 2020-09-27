@@ -12,7 +12,7 @@ features:
     details: |
       Handlebars в значительной степени совместим с шаблонами Mustache. 
       В большинстве случаев можно поменять Mustache на Handlebars и продолжить использование ваших текущих шаблонов.
-  - title: Fast execution
+  - title: Быстрое исполнение
     details: |
       Handlebars компилирует шаблоны в функции JavaScript. Это ускоряет выполнение шаблона по сравнению с большинством других шаблонизаторов.
 footer: MIT licensed | Copyright (C) 2011-2019 by Yehuda Katz

@@ -1,21 +1,20 @@
-# Integrations
+# Интеграция
 
-The following packages integrate Handlebars in different environments. These packages are **not** officially supported
-by the Handlebars team.
+Следующие пакеты интегрируют Handlebars в разные среды.
+Эти пакеты  официально **не** поддерживаются командой Handlebars.
 
-There are multiple webpack-plugins that allow you to use Handlebars in a Webpack environment.
+Существует несколько плагинов webpack, которые позволяют использовать Handlebars в среде Webpack.
 
 ## Webpack: handlebars-loader
 
-The [handlebars-loader](https://github.com/pcardune/handlebars-loader) allow you to import
-[precompiled](./precompilation.html) template. Just write your handlebars-template into a `template.handlebars`-file and
-import it using
+[Handlebars-loader](https://github.com/pcardune/handlebars-loader) позволяет вам импортировать [предскомпилированный](./precompilation.html) шаблон.
+Просто запишите свой шаблон handlebars в файл `template.handlebars` и импортируйте его, используя
 
 ```js
 const compiledTemplate = require("./template.handlebars");
 ```
 
-or
+или
 
 ```js
 import compiledTemplate from "./template.handlebars";
@@ -23,26 +22,22 @@ import compiledTemplate from "./template.handlebars";
 
 ## Webpack: handlebars-webpack-plugin
 
-The [handlebars-webpack-plugin](https://github.com/sagold/handlebars-webpack-plugin) uses Handlebars to build your
-HTML-pages statically when compiling your application
+[Handlebars-webpack-plugin](https://github.com/sagold/handlebars-webpack-plugin) использует Handlebars для статического построения ваших HTML-страниц при компиляции вашего приложения.
 
 ## Babel: handlebars-inline-precompile
 
-The
-[babel-plugin-handlebars-inline-precompile](https://github.com/jamiebuilds/babel-plugin-handlebars-inline-precompile)
-precompiles Handlebars templates that are provided as template literals in the JavaScript source code:
+[Babel-plugin-handlebars-inline-precompile](https://github.com/jamiebuilds/babel-plugin-handlebars-inline-precompile) предварительно компилирует шаблоны Handlebars, которые предоставляются как литералы шаблонов в исходном коде JavaScript:
 
 ```js
 import hbs from "handlebars-inline-precompile";
 const compiledTemplate = hbs`{{name}}`;
 ```
 
-Please refer to the documentation of the package for setup instructions.
+Пожалуйста, обратитесь к документации пакета за инструкциями по установке.
 
 ## Browserify: hbsfy
 
-The [hbsfy](https://www.npmjs.com/package/hbsfy) package allows you to import precompiled templates in a browserify
-environment:
+Пакет [hbsfy](https://www.npmjs.com/package/hbsfy) позволяет импортировать предварительно скомпилированные шаблоны в среде просмотра:
 
 ```js
 const compiledTemplate = require("./template.handlebars");
@@ -50,17 +45,17 @@ const compiledTemplate = require("./template.handlebars");
 
 ## Parcel: parcel-plugin-handlebars
 
-There is an old plugin for parcel:
+Есть старый плагин для parcel:
 https://www.npmjs.com/package/parcel-plugin-handlebars
 
-But you should use one of the many forks of this package, which are more up-to-date:
+Но вы должны использовать одну из многих более свежих вилок этого пакета:
 https://www.npmjs.com/search?q=parcel-plugin-handlebars
 
-The most recent one is:
+Самый последний из них:
 https://www.npmjs.com/package/@inventory/parcel-plugin-handlebars
 
 ## Parcel: parcel-plugin-handlebars-precompile
 
-TODO: Write text here
+TODO: Напишите здесь текст
 
 https://www.npmjs.com/package/parcel-plugin-handlebars-precompile
