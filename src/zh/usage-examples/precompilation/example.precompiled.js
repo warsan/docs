@@ -10,8 +10,7 @@
             return (
                 "Handlebars <b>" +
                 container.escapeExpression(
-                    ((helper =
-                            (helper = helpers.doesWhat || (depth0 != null ? depth0.doesWhat : depth0)) != null ?
+                    ((helper = (helper = helpers.doesWhat || (depth0 != null ? depth0.doesWhat : depth0)) != null ?
                             helper : container.hooks.helperMissing),
                         typeof helper === "function" ?
                         helper.call(depth0 != null ? depth0 : container.nullContext || {}, {
