@@ -1,9 +1,9 @@
 ---
 home: true
 heroImage: /images/handlebars_logo.png
-tagline: Minimal templating on steroids
-actionText: Get Started →
-actionLink: /guide/
+tagline: Минимальный шаблон на стероидах
+actionText: Начать →
+actionLink: /ru/guide/
 features:
   - title: Семантические шаблоны
     details: |
@@ -15,7 +15,7 @@ features:
   - title: Быстрое исполнение
     details: |
       Handlebars компилирует шаблоны в функции JavaScript. Это ускоряет выполнение шаблона по сравнению с большинством других шаблонизаторов.
-footer: MIT licensed | Copyright (C) 2011-2019 by Yehuda Katz
+footer: Лицензия MIT | Copyright (C) 2011-2019 by Варлам Ерофеич
 ---
 
 <a class="devswag" href="https://www.devswag.com/collections/handlebars">
