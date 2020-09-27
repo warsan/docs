@@ -1,0 +1,10 @@
+<!-- Включает Handlebars от CDN -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script>
+    // скомпилировать шаблон
+    var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
+    // выполнить скомпилированный шаблон и распечатать вывод на консоль
+    console.log(template({
+        doesWhat: "rocks!"
+    }));
+</script>

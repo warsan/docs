@@ -1,0 +1,21 @@
+<script id="template" type="text/x-handlebars-template">
+  Handlebars <b>{{doesWhat}}</b>
+</script>
+
+<div id="output">
+  <!-- Вывод шаблона идет здесь -->
+</div>
+
+<!-- Включает руль от CDN -->
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+<script>
+  // скомпилировать шаблон
+  let templateAsString = document.getElementById("template").innerHTML;
+  var templateFunction = Handlebars.compile(templateAsString);
+
+  // выполнить скомпилированный шаблон и сохранить вывод
+  document.getElementById("output").innerHTML = templateFunction({
+      doesWhat: "rocks!"
+  });
+</script>
