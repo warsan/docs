@@ -1,12 +1,11 @@
-<template>
-  <!-- eslint-disable vue/no-v-html -->
-  <pre :class="cssClass"><!--
-  --><code
+<template><!-- eslint-disable vue/no-v-html -->
+  <pre :class="cssClass"><!-- -->
+    <code
             spellcheck="false"
             :class="['ce-code-content', 'hljs', hljsLanguage]"
             v-html="codeHtml"
-    /><!--
---></pre>
+    /><!-- -->
+  </pre>
 </template>
 <script>
 import hljs from "highlight.js/lib/highlight";

@@ -2,7 +2,7 @@
   <Modal :show="show" class="export-yaml-modal" @close="$emit('close')">
     <template v-slot:header>Export YAML</template>
     <p>
-      You can copy the yaml-code below and use it as frontmatter for an example page.
+      Можно скопировать yaml-код ниже как обложку для примера страницы.
     </p>
     <hr />
     <pre class="yaml-contents" disabled v-text="yaml"></pre>

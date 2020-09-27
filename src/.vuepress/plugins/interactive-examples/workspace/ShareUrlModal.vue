@@ -1,16 +1,15 @@
 <template>
   <Modal :show="show" @close="$emit('close')">
-    <template v-slot:header>Share this example </template>
-    <p>
-      You can paste this URL into github issues to order to share your setup when filing bugs or questions
+    <template v-slot:header>Поделитесь этим примером </template>
+    <p>Вы можете вставить этот URL-адрес в проблемы с github, чтобы поделиться своими настройками при регистрации ошибок или вопросов.
     </p>
     <hr />
     <input ref="urlInput" type="text" :value="urlForSharing" class="url-for-sharing" onfocus="this.select()" />
-    <button @click="copyToClipboard">Copy to clipboard</button>
+    <button @click="copyToClipboard">Скопировать в буфер обмена</button>
     <div class="share">
-      <button @click="reportSecurityIssue">Report a security issue</button>
-      <button @click="askQuestion">Ask question at github</button>
-      <button @click="fileBug">File bug at github</button>
+      <button @click="reportSecurityIssue">Сообщить о рисках</button>
+      <button @click="askQuestion">Для вопроса на github</button>
+      <button @click="fileBug">Ошибка файла на github</button>
     </div>
     <div v-show="successNotification" class="success-notification">{{ successNotification }}</div>
   </Modal>
@@ -43,7 +42,7 @@
       copyToClipboard() {
         this.$refs.urlInput.select();
         document.execCommand("copy");
-        this.notifySuccess("URL has been copied to clipboard");
+        this.notifySuccess("URL скопирован в буфер обмена");
       },
       notifySuccess(message) {
         this.$data.successNotification = message;
@@ -52,30 +51,30 @@
 
       askQuestion() {
         const issueBody = `
-* [ ] This is NOT a security issues!! If it is, please file a report at https://www.npmjs.com/advisories/report?package=handlebars**
+* [ ] Это НЕ проблема безопасности !! Если да, отправьте отчет по адресу https://www.npmjs.com/advisories/report?package=handlebars**
 
-# Example link
+# Пример ссылки
 
 ${this.$props.urlForSharing}
 
-# Question
+# Вопрос
 
 `;
         document.location.href = `https://github.com/wycats/handlebars.js/issues/new?body=${encodeURIComponent(issueBody)}`;
       },
       fileBug() {
         const issueBody = `
-* [ ] This is NOT a security issues!! If it is, please file a report at https://www.npmjs.com/advisories/report?package=handlebars**
+* [ ] Это НЕ проблема безопасности !! Если да, отправьте отчет по адресу https://www.npmjs.com/advisories/report?package=handlebars**
 
-# Bug description
+# Описание ошибки
 
-# Example link
+# Пример ссылки
 
 ${this.$props.urlForSharing}
 
-# Expected outcome
+# Ожидаемый результат
 
-# Actual outcome`;
+# Фактический результат `;
         document.location.href = `https://github.com/wycats/handlebars.js/issues/new?body=${encodeURIComponent(issueBody)}`;
       },
       reportSecurityIssue() {
@@ -83,7 +82,7 @@ ${this.$props.urlForSharing}
 
 --Insert description here--
 
-Here is a URL to verify the issue:
+Вот URL-адрес для проверки проблемы:
 
 ${this.$props.urlForSharing}
 

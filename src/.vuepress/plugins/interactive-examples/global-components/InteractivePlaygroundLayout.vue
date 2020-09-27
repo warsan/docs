@@ -7,8 +7,8 @@
             :parsed-example="parsedExampleWithEnsuredPreparationScript"
             :interactive="true"
             :show-input-output="true"
-          /></div
-      ></template>
+          /></div>
+      </template>
     </Layout>
   </div>
 </template>
