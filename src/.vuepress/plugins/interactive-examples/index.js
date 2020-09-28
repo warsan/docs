@@ -30,7 +30,7 @@ export function interactiveExamples() {
       }
     },
     generated() {
-      // executed only when "building", not when "developing".
+      // выполняется только при «строительстве», а не при «разработке».
       errorCollector.failOnErrors();
     }
   };

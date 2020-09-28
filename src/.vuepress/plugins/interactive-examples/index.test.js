@@ -6,7 +6,7 @@ describe("the interactive-examples plugin", () => {
   let consoleErrorSpy;
 
   beforeAll(() => {
-    // disable console as there may be confusing output when running tests
+  // отключить консоль, - при запуске тестов бывает запутанный вывод
     consoleLogSpy = jest.spyOn(console, "log").mockImplementation(() => {});
     consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
   });

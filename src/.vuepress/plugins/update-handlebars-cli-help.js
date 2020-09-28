@@ -21,7 +21,7 @@ export function updateHandlebarsCliHelp() {
 
         state.line = startLine + 1;
 
-        // inspired by the snippet-parser https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/snippet.js
+        // вдохновлённый парсером сниппетов https://github.com/vuejs/vuepress/blob/master/packages/%40vuepress/markdown/lib/snippet.js
         const token = state.push("fence", "code", 0);
         token.info = "";
         token.content = handlebarsHelp;
