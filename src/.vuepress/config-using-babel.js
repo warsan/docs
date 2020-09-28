@@ -98,9 +98,9 @@ export default {
           },
         ],
         sidebar: {
-          "/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
-          "/guide/": ["", "expressions.md", "partials.md", "block-helpers.md", "builtin-helpers.md", "hooks.md"],
-          "/api-reference/": [
+          "/ru/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
+          "/ru/guide/": ["", "expressions.md", "partials.md", "block-helpers.md", "builtin-helpers.md", "hooks.md"],
+          "/ru/api-reference/": [
             "",
             "compilation.md",
             "runtime-options.md",
@@ -109,7 +109,7 @@ export default {
             "data-variables.md",
             "helpers.md",
           ],
-          "/contributing/": ["", "interactive-examples.md", "button-links.md"],
+          "/ru/contributing/": ["", "interactive-examples.md", "button-links.md"],
         },
         displayAllHeaders: false,
         repo: "wycats/handlebars.js",
