@@ -1,7 +1,7 @@
 <template>
   <select v-model="selected">
     <option disabled value="">
-      Пожалуйста, выберите один
+      Выберите версию
     </option>
     <option v-for="version in versions" :key="version" :value="version">
       {{ version }}

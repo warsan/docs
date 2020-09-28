@@ -7,13 +7,13 @@
         Handlebars:
         <handlebars-version-chooser v-model="currentExample.handlebarsVersion" @input="executeExample" />
         <button @click="addPartial">
-          Добавить партию
+          Добавить лист
         </button>
         <button @click="copyAsYaml">
           Копировать как YAML
         </button>
         <button @click="share">
-          Share (Experimental)
+          Шара (Экспериментальная)
         </button>
       </div>
     </div>

@@ -12,8 +12,8 @@
     <highlighted-code class="example-part-code" :language="language" :value="examplePartAsString" />
   </div>
   <div v-else-if="exampleData == null" class="handlebars-example-part not-found">
-    <header>Example {{ normalizedPath }} not found</header>
-    <section>Please verify that the path is correct.</section>
+    <header>Пример {{ normalizedPath }} не найден</header>
+    <section>Убедитесь, что путь правильный.</section>
   </div>
   <div v-else-if="show === 'partial'" class="handlebars-example-part not-found">
     <header>Partial "{{ name }}" not found</header>
@@ -41,7 +41,7 @@ export default {
       type: String,
       required: true,
       validator: function(value) {
-        // The value must match one of these strings
+        // Значение должно соответствовать одной из этих строк.
         return partToLanguage[value] != null;
       }
     },

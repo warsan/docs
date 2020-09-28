@@ -1,6 +1,6 @@
 <!-- 
-Hotfix for error when injecting page-top slots. This file should not be needed anymore once
-vuepress@1.2.1 is released
+Исправление ошибки при добавлении слотов вверху страницы. Этот файл больше не понадобится один раз
+vuepress@1.2.1 выпущен
  -->
 <template>
   <div class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">

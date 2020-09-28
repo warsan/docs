@@ -1,7 +1,8 @@
 <template>
   <Modal :show="show" @close="$emit('close')">
     <template v-slot:header>Поделитесь этим примером </template>
-    <p>Вы можете вставить этот URL-адрес в проблемы с github, чтобы поделиться своими настройками при регистрации ошибок или вопросов.
+    <p>Вставляйте этот URL-адрес в проблемы с github, 
+      чтобы поделиться своими настройками при регистрации ошибок или вопросов.
     </p>
     <hr />
     <input ref="urlInput" type="text" :value="urlForSharing" class="url-for-sharing" onfocus="this.select()" />

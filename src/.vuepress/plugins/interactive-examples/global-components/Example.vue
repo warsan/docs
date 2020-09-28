@@ -1,7 +1,7 @@
 <template>
   <div v-if="exampleData" class="handlebars-example">
     <router-link class="example-show-in-playground" :to="normalizedPath">
-      Open in interactive playground!
+      Откройте интерактивную площадку!
     </router-link>
     <workspace
       :parsed-example="exampleData"
@@ -11,7 +11,7 @@
   </div>
   <div v-else class="handlebars-example not-found">
     <header>Example {{ normalizedPath }} not found</header>
-    <section>Please verify that the path is correct.</section>
+    <section>Убедитесь, что путь правильный.</section>
   </div>
 </template>
 <script>
