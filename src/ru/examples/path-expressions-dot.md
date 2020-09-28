@@ -1,10 +1,9 @@
 ---
 layout: InteractivePlaygroundLayout
 example:
-  template: |-
-    {{#person}}
-      {{firstname}} {{lastname}}
-    {{/person}}
+  template: |
+    {{person.firstname}} {{person.lastname}}
+  partials:
   input:
     person:
       firstname: Yehuda
