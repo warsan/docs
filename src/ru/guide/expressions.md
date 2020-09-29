@@ -1,61 +1,54 @@
-# Expressions
+# Выражения
 
 ::: v-pre
 
-Handlebars expressions are the basic unit of a Handlebars template. You can use them alone in a `{{mustache}}`, pass
-them to a Handlebars helper, or use them as values in hash arguments.
+Выражения Handlebars - это основная единица шаблона Handlebars. Вы можете использовать их отдельно в `{{mustache}}`, передать их помощнику Handlebars или использовать их как значения в аргументах хэша.
 
 :::
 
-## Basic Usage
+## Основное использование
 
-Handlebars expressions are some contents enclosed by double curly braces `{{}}`. In the below template, `firstname` is a
-variable that is enclosed by double curly braces, which is said to be an expression.
+Выражения Handlebars - это некоторое содержимое, заключенное в двойные фигурные скобки `{{}}`. В приведенном ниже шаблоне `firstname` - это переменная, заключенная в двойные фигурные скобки, которая называется выражением.
 
 <ExamplePart examplePage="/examples/simple-expressions.md" show="template" />
 
-If the below input object is applied to the template
+Если к шаблону применяется указанный ниже объект ввода
 
 <ExamplePart examplePage="/examples/simple-expressions.md" show="input" />
 
-Expressions are compiled to produce the output as follows:
+Выражения компилируются для получения вывода следующим образом:
 
 <ExamplePart examplePage="/examples/simple-expressions.md" show="output" />
 
-## Path expressions
+## Выражения пути
 
-Handlebars expressions can also be dot-separated paths.
+Выражения Handlebars также могут быть путями, разделенными точками.
 
 <ExamplePart examplePage="/examples/path-expressions-dot.md" show="template" />
 
-This expression looks up the `person` property in the input object and in turn looks up the `firstname` and `lastname`
-property within the `person` object.
+Это выражение ищет свойство `person` во входном объекте и, в свою очередь, ищет свойства `firstname` и `lastname` внутри объекта `person`.
 
-Pass the below input object to the template <ExamplePart examplePage="/examples/path-expressions-dot.md" show="input" />
+Передайте указанный ниже объект ввода в шаблон <ExamplePart examplePage="/examples/path-expressions-dot.md" show="input" />
 
-Output will be generated as below <ExamplePart examplePage="/examples/path-expressions-dot.md" show="output" />
+Вывод будет создан следующим образом: <ExamplePart examplePage="/examples/path-expressions-dot.md" show="output" />
 
-Handlebars also supports a deprecated `/` syntax, so you could write the above template as:
+Handlebars также поддерживает устаревший синтаксис `/`, поэтому вы можете написать вышеуказанный шаблон как:
 
 <ExamplePart examplePage="/examples/path-expressions-slash.md" show="template" />
 
-## Changing the context
+## Изменение контекста
 
-Some helpers like `#with` and `#each` allow you to dive into nested objects. When you include `../` segments in your
-path, Handlebars will change back into the parent context.
+Некоторые помощники, такие как `#with` и `#each`, позволяют вам погрузиться во вложенные объекты. Когда вы включаете сегменты `../` в свой путь, Handlebars вернутся обратно в родительский контекст.
 
 <ExamplePart examplePage="/examples/path-expressions-dot-dot" show="template" />
 
-Even though the name is printed while in the context of a comment, it can still go back to the main context (the
-root-object) to retrieve the prefix.
+Несмотря на то, что имя печатается в контексте комментария, оно все равно может вернуться к основному контексту (корневому объекту), чтобы получить префикс.
 
 ::: v-pre
 
 ::: warning
 
-The exact value that `../` will resolve to varies based on the helper that is calling the block. Using `../` is only
-necessary when context changes. Children of helpers such as `{{#each}}` would require the use of `../` while children of
-helpers such as `{{#if}}` do not.
+Точное значение, которое будет разрешено `../`, зависит от помощника, вызывающего блок. Использование `../` необходимо только при изменении контекста. Потомки помощников, таких как `{{#each}}`, потребуют использования `../`, в то время как дочерние элементы таких помощников, как `{{#if}}` нет.
 
 ```handlebars
 {{permalink}}
@@ -68,156 +61,138 @@ helpers such as `{{#if}}` do not.
 {{/each}}
 ```
 
-In this example all of the above reference the same prefix value even though they are located within different blocks.
-This behavior is new as of Handlebars 4; the
-[release notes](https://github.com/wycats/handlebars.js/blob/master/release-notes.md) discuss the prior behavior as well
-as the migration plan. Handlebars also allows for name conflict resolution between helpers and data fields via a this
-reference:
+В этом примере все вышеперечисленное ссылается на одно и то же значение префикса, даже если они расположены в разных блоках.
+Это новое поведение в Handlebars 4; [примечания к выпуску](https://github.com/wycats/handlebars.js/blob/master/release-notes.md) обсуждают предыдущее поведение, а также план миграции. Handlebars также позволяет разрешать конфликты имен между помощниками и полями данных с помощью этой ссылки:
 
 :::
 
-## Literal segments
+## Буквальные сегменты
 
-Identifiers may be any unicode character except for the following:
+Идентификаторы могут быть любым символом Юникода, за исключением следующих:
 
-_Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>` `@` `[` `\` `]` `^` `` ` `` `{` `|` `}`
-`~`
+_Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>` `@` `[` `\` `]` `^` `` ` `` `{` `|` `}` `~`
 
-In addition, the words `true`, `false`, `null` and `undefined` are only allowed in the first part of a path expression.
+Кроме того, слова `true`, `false`, `null` и `undefined` разрешены только в первой части выражения пути.
 
-To reference a property that is not a valid identifier, you can use segment-literal notation, `[`. You may not include a
-closing `]` in a path-literal, but all other characters are allowed.
+Для ссылки на свойство, которое не является допустимым идентификатором, вы можете использовать нотацию сегментно-буквального обозначения, `[`. Вы не можете включать закрывающий `]` в литерал пути, но все остальные символы разрешены.
 
-JavaScript-style strings, `"` and `'`, may also be used instead of `[` pairs.
+Строки в стиле JavaScript, `"` и `'`, также могут использоваться вместо пар `[`.
 
 <ExamplePart examplePage="/examples/literal-segments.md" show="template" />
 
-## HTML-escaping
+## HTML-экранирование
 
 ::: v-pre
 
-In Handlebars, the values returned by the `{{expression}}` are HTML-escaped. Say, if the expression contains `&`, then
-the returned HTML-escaped output is genarated as `&amp;`. If you don't want Handlebars to escape a value, use the
-"triple-stash", `{{{`:
+В Handlebars значения, возвращаемые `{{expression}}`, экранируются HTML-escaped.
+Скажем, если выражение содержит `&`, то возвращаемый HTML-выход генерируется как `&amp;`. Если вы не хотите, чтобы Handlebars экранировал значение, используйте "тройной тайник", `{{{`:
 
 :::
 
-In the below template, you can learn how to produce the HTML escaped and raw output.
+В приведенном ниже шаблоне вы можете узнать, как создать экранированный и необработанный вывод HTML.
 
 <ExamplePart examplePage="/examples/html-escaping.md" show="template" />
 
-Pass the special characters to the template
+Передайте специальные символы в шаблон
 
 <ExamplePart examplePage="/examples/html-escaping.md" show="input" />
 
 ::: v-pre
 
-Expressions enclosed by "triple-stash" (`{{{`) produce the raw output. Otherwise, HTML-escaped output is generated as
-below.
+Выражения, заключенные в "triple-stash" (`{{{`), производят необработанный вывод. В противном случае создается вывод с экранированием HTML, как показано ниже.
 
 :::
 
 <ExamplePart examplePage="/examples/html-escaping.md" show="output" />
 
-## Helpers
+## Помощники
 
-Helpers can be used to implement functionality that is not part of the Handlebars language itself.
+Помощники могут использоваться для реализации функций, которые не являются частью самого языка Handlebars.
 
-A helper can be registered at runtime via `Handlebars.registerHelper`, for example in order to uppercase all characters
-of a string.
+Помощник может быть зарегистрирован во время выполнения через `Handlebars.registerHelper`, например, для того, чтобы переводить все символы строки в верхний регистр.
 
 <ExamplePart examplePage="/examples/helper-simple.md" show="preparationScript" />
 
-A Handlebars helper call is a simple identifier, followed by zero or more parameters (separated by a space). Each
-parameter is a Handlebars expression that is evaluated exactly the same way as described above in "Basic Usage":
+Вызов помощника Handlebars - это простой идентификатор, за которым следует ноль или более параметров (разделенных пробелом). Каждый параметр представляет собой выражение Handlebars, которое оценивается точно так же, как описано выше в разделе «Основы использования»:
 
 <ExamplePart examplePage="/examples/helper-simple.md" show="template" />
 
-In this case, `loud` is the name of a helper, and `lastname` is a parameter to the helper. The template will uppercase
-the `lastname` property of the input:
+В этом случае `loud` - это имя помощника, а `lastname` - это параметр для помощника. В шаблоне свойство ввода `lastname` будет заглавными:
 
 <Flex>
 <ExamplePart examplePage="/examples/helper-simple.md" show="input" />
 <ExamplePart examplePage="/examples/helper-simple.md" show="output" />
 </Flex>
 
-### Prevent HTML-escaping of helper return values
+### Предотвращение HTML-экранирования возвращаемых значений помощника
 
-When your helper returns an instance of `Handlebars.Safestring` the return-value is not escaped, even if the helper is
-called with `{{` instead of `{{{`. You have to take care that all parameters are escaped properly using
-`Handlebars.escapeExpression`.
+Когда ваш помощник возвращает экземпляр `Handlebars.Safestring`, возвращаемое значение не экранируется, даже если помощник вызывается с помощью `{{` вместо `{{{`. Вы должны позаботиться о том, чтобы все параметры были правильно экранированы с помощью `Handlebars.escapeExpression`.
 
 <ExamplePart examplePage="/examples/helper-safestring.md" show="preparationScript" />
 
-### Helpers with Multiple Parameters
+### Помощники с несколькими параметрами
 
-Let us see another example of helpers with two parameters
+Давайте посмотрим еще один пример помощников с двумя параметрами
 
 <ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="template" />
 
-In this case, Handlebars will pass the link helper two parameters: the String `See Website` and the value of
-`people.url` from the below provided input `people` object.
+В этом случае Handlebars передаст помощнику ссылки два параметра: String `See Website` и значение `people.url` из предоставленного ниже входного объекта `people`.
 
 <ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="input" />
 
-The helper function `link` is used to generate a hyperlink as described in the script.
+Вспомогательная функция `link` используется для создания гиперссылки, как описано в сценарии.
 
 <ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="preparationScript" />
 
-We will obtain the output using the input parameters
+Мы получим вывод, используя входные параметры
 
 <ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="output" />
 
-In the above example, You could use the exact same helper with dynamic text based on the value of `people.text`:
+В приведенном выше примере вы можете использовать тот же помощник с динамическим текстом на основе значения `people.text`:
 
 <Flex>
 <ExamplePart examplePage="/examples/helper-dynamic-parameters.md" show="template" />
 <ExamplePart examplePage="/examples/helper-dynamic-parameters.md" show="input" />
 </Flex>
 
-### Literal arguments
+### Буквальные аргументы
 
-Helper calls may also have literal values passed to them either as parameter arguments or hash arguments. Supported
-literals include numbers, strings, `true`, `false`, `null` and `undefined`:
+Вызовы вспомогательных функций также могут иметь буквальные значения, передаваемые им в качестве аргументов параметров или хеш-аргументов.  
+Поддерживаемые литералы включают числа, строки, `true`, `false`, `null` и `undefined`:
 
 <Flex>
 <ExamplePart examplePage="/examples/helper-literals" show="template" />
 </Flex>
 
-### Helpers with Hash arguments
+### Помощники с аргументами Hash
 
-Handlebars provides additional metadata, such as Hash arguments, to helpers as a final parameter.
+Handlebars предоставляет помощникам дополнительные метаданные, такие как аргументы хэша, в качестве последнего параметра.
 
 <ExamplePart examplePage="/examples/helper-hash-arguments.md" show="template" />
 
-In that template,the final parameter `href=people.url class="people"` are hash arguments sent to the helper.
+В этом шаблоне последний параметр `href=people.url class="people"` - это хэш-аргументы, отправленные помощнику.
 
-The keys in hash arguments must each be simple identifiers, and the values are Handlebars expressions. This means that
-values can be simple identifiers, paths, or Strings.
+Ключи в аргументах хэша должны быть простыми идентификаторами, а значения - выражениями Handlebars. Это означает, что значения могут быть простыми идентификаторами, путями или строками.
 
-If we pass the below input to the template, the value of `person.url` can be obtained from the `person` object.
+Если мы передадим в шаблон указанные ниже данные, значение `person.url` можно будет получить из объекта `person`.
 
 <ExamplePart examplePage="/examples/helper-hash-arguments.md" show="input" />
 
-As described in the helper script below, the hash arguments can be obtained from the last parameter `options` for
-further processing within the helper.
+Как описано во вспомогательном скрипте ниже, хеш-аргументы могут быть получены из последнего параметра `options` для дальнейшей обработки внутри помощника.
 
 <ExamplePart examplePage="/examples/helper-hash-arguments.md" show="preparationScript" />
 
-The output of above helper is generated as below
+Вывод вышеуказанного помощника создается, как показано ниже
 
 <ExamplePart examplePage="/examples/helper-hash-arguments.md" show="output" />
 
-Handlebars also offers a mechanism for invoking a helper with a block of the template. Block helpers can then invoke
-that block zero or more times with any context it chooses.
+Handlebars также предлагает механизм для вызова помощника с блоком шаблона. Затем помощники блоков могут вызывать этот блок ноль или более раз в любом контексте, который они выбирают.
 
-!button[Learn More: Block Helpers](block-helpers.html)
+!button[Узнать больше: Блок-помощники](block-helpers.html)
 
-### Disambiguating helpers calls and property lookup
+### Устранение неоднозначности вызовов помощников и поиск свойств
 
-If a helper is registered by the same name as a property of an input object, the helper has priority over the input
-property. If you want to resolve the input property instead, you can prefix its name with `./` or `this.` (or the
-deprecated `this/`)
+Если помощник зарегистрирован под тем же именем, что и свойство входного объекта, помощник имеет приоритет над свойством input. Если вы хотите вместо этого разрешить свойство input, вы можете префикс его имени с помощью `./` Или `this` (или устаревшего `this/`)
 
 <Flex>
 <ExamplePart examplePage="/examples/helper-data-name-conflict" show="template" />
@@ -225,25 +200,20 @@ deprecated `this/`)
 <ExamplePart examplePage="/examples/helper-data-name-conflict" show="preparationScript" />
 </Flex>
 
-## Subexpressions
+## Подвыражения
 
-Handlebars offers support for subexpressions, which allows you to invoke multiple helpers within a single mustache, and
-pass in the results of inner helper invocations as arguments to outer helpers. Subexpressions are delimited by
-parentheses.
+Handlebars предлагает поддержку подвыражений, что позволяет вызывать несколько помощников в одном усе и передавать результаты вызовов внутренних помощников в качестве аргументов внешним помощникам. Подвыражения разделяются круглыми скобками.
 
 ```handlebars
 {{outer-helper (inner-helper 'abc') 'def'}}
 ```
 
-In this case, `inner-helper` will get invoked with the string argument `'abc'`, and whatever the `inner-helper` function
-returns will get passed in as the first argument to `outer-helper` (and `'def'` will get passed in as the second
-argument to `outer-helper`).
+В этом случае `inner-helper` будет вызываться со строковым аргументом `'abc'`, и все, что возвращает функция `inner-helper`, будет передано в качестве первого аргумента для `outer-helper` (и `'def'` будет передан как второй аргумент для `outer-helper`).
 
-## Whitespace Control
+## Контроль пробелов
 
-Template whitespace may be omitted from either side of any mustache statement by adding a `~` character by the braces.
-When applied all whitespace on that side will be removed up to the first handlebars expression or non-whitespace
-character on that side.
+Пробелы в шаблоне могут быть опущены с любой стороны любого оператора усов, добавив в фигурные скобки символ `~`.
+При применении все пробелы с этой стороны будут удалены до первого выражения руля или непробельного символа на этой стороне.
 
 ```handlebars
 {{#each nav ~}}
@@ -257,7 +227,7 @@ character on that side.
 {{~/each}}
 ```
 
-with this context:
+в этом контексте:
 
 ```js
 {
@@ -265,14 +235,13 @@ with this context:
 }
 ```
 
-results in output sans newlines and formatting whitespace:
+приводит к выводу без новой строки и форматирования пробелов:
 
 ```html
 <a href="foo">bar</a><a href="bar">Empty</a>
 ```
 
-This expands the default behavior of stripping lines that are "standalone" helpers (only a block helper, comment, or
-partial and whitespace).
+Это расширяет стандартное поведение удаления строк, которые являются «автономными» помощниками (только помощник блока, комментарий или частичное и пробел).
 
 ```handlebars
 {{#each nav}}
@@ -286,7 +255,7 @@ partial and whitespace).
 {{~/each}}
 ```
 
-will render
+окажет
 
 ```html
 <a href="foo">
@@ -297,12 +266,11 @@ will render
 </a>
 ```
 
-## Escaping Handlebars expressions
+## Экранирование выражений Handlebars
 
 ::: v-pre
 
-Handlebars content may be escaped in one of two ways, inline escapes or raw block helpers. Inline escapes created by
-prefixing a mustache block with `\`. Raw blocks are created using `{{{{` mustache braces.
+Содержимое Handlebars может быть экранировано одним из двух способов: встроенным экранированием или необработанными помощниками блока. Встроенные escape-последовательности, созданные путем добавления к блоку усов префикса `\`. Необработанные блоки создаются с помощью фигурных скобок `{{{{` усов.
 
 :::
 
@@ -313,5 +281,4 @@ prefixing a mustache block with `\`. Raw blocks are created using `{{{{` mustach
 {{{{/raw}}}}
 ```
 
-Raw blocks operate in the same manner as other [block helpers](block-helpers.html) with the distinction of the child
-content is treated as a literal string.
+Необработанные блоки работают так же, как и другие [помощники блоков](block-helpers.html), но при этом дочерний контент обрабатывается как буквальная строка.

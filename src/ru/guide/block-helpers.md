@@ -1,11 +1,10 @@
-# Block Helpers
+# Блоки помощников
 
-Block helpers make it possible to define custom iterators and other functionality that can invoke the passed block with
-a new context.
+Помощники блоков позволяют определять настраиваемые итераторы и другие функции, которые могут вызывать переданный блок с новым контекстом.
 
-## Basic Blocks
+## Основные блоки
 
-For demonstration purposes, let's define a block helper that invokes the block as though no helper existed.
+В демонстрационных целях давайте определим вспомогательную функцию блока, которая вызывает блок, как если бы помощник не существовал.
 
 ```handlebars
 <div class="entry">
@@ -16,9 +15,7 @@ For demonstration purposes, let's define a block helper that invokes the block a
 </div>
 ```
 
-The `noop` helper (short for "no operation") will receive an options hash. This options hash contains a function
-(`options.fn`) that behaves like a normal compiled Handlebars template. Specifically, the function will take a context
-and return a String.
+Помощник `noop` ​​(сокращение от «no operation») получит хэш параметров. Этот хэш параметров содержит функцию (`options.fn`), которая ведет себя как обычный скомпилированный шаблон Handlebars. В частности, функция примет контекст и вернет строку.
 
 ```js
 Handlebars.registerHelper("noop", function(options) {
@@ -26,20 +23,17 @@ Handlebars.registerHelper("noop", function(options) {
 });
 ```
 
-Handlebars always invokes helpers with the current context as `this`, so you can invoke the block with `this` to
-evaluate the block in the current context.
+Handlebars всегда вызывает помощников с текущим контекстом как `this`, поэтому вы можете вызвать блок с помощью `this` для оценки блока в текущем контексте.
 
-Any helpers defined in this manner will take precedence over fields defined in the context. To access a field that is
-masked by a helper, a path reference may be used. In the example above a field named `noop` on the context object would
-be referenced using:
+Любые помощники, определенные таким образом, будут иметь приоритет над полями, определенными в контексте. Для доступа к полю, замаскированному помощником, можно использовать ссылку на путь. В приведенном выше примере для ссылки на поле с именем `noop` ​​в объекте контекста будет использоваться:
 
 ```handlebars
 {{./noop}}
 ```
 
-## Basic Block Variation
+## Базовая вариация блока
 
-To better illustrate the syntax, let's define another block helper that adds some markup to the wrapped text.
+Чтобы лучше проиллюстрировать синтаксис, давайте определим другой помощник блока, который добавляет некоторую разметку к обернутому тексту.
 
 ```handlebars
 <div class="entry">
@@ -50,8 +44,7 @@ To better illustrate the syntax, let's define another block helper that adds som
 </div>
 ```
 
-The bold helper will add markup to make its text bold. As before, the function will take a context as input and return a
-String.
+Помощник полужирным шрифтом добавит разметку, чтобы сделать текст жирным. Как и раньше, функция примет контекст в качестве входных данных и вернет String.
 
 ```js
 Handlebars.registerHelper("bold", function(options) {
@@ -59,10 +52,9 @@ Handlebars.registerHelper("bold", function(options) {
 });
 ```
 
-## The `with` helper
+## Помощник `with`
 
-The `with` helper demonstrates how to pass a parameter to your helper. When a helper is called with a parameter, it is
-invoked with whatever context the template passed in.
+Помощник `with` демонстрирует, как передать параметр вашему помощнику. Когда помощник вызывается с параметром, он вызывается с любым контекстом, в который передан шаблон.
 
 ```handlebars
 <div class="entry">
@@ -74,8 +66,7 @@ invoked with whatever context the template passed in.
 </div>
 ```
 
-You might find a helper like this useful if a section of your JSON object contains deeply nested properties, and you
-want to avoid repeating the parent name. The above template could be useful with a JSON like:
+Такой помощник может оказаться полезным, если раздел вашего объекта JSON содержит глубоко вложенные свойства, и вы хотите избежать повторения родительского имени. Вышеупомянутый шаблон может быть полезен с JSON, например:
 
 ```js
 {
@@ -88,8 +79,7 @@ want to avoid repeating the parent name. The above template could be useful with
 
 ```
 
-Implementing a helper like this is a lot like implementing the `noop` helper. Helpers can take parameters, and
-parameters are evaluated just like expressions used directly inside `{{mustache}}` blocks.
+Реализация такого помощника очень похожа на реализацию помощника `noop`. Помощники могут принимать параметры, и параметры оцениваются так же, как выражения, используемые непосредственно внутри блоков `{{mustache}}`.
 
 ```js
 Handlebars.registerHelper("with", function(context, options) {
@@ -97,12 +87,11 @@ Handlebars.registerHelper("with", function(context, options) {
 });
 ```
 
-Parameters are passed to helpers in the order that they are passed, followed by the options hash.
+Параметры передаются помощникам в том порядке, в котором они передаются, за которым следует хэш параметров.
 
-## Simple Iterators
+## Простые итераторы
 
-A common use-case for block helpers is using them to define custom iterators. In fact, all Handlebars built-in helpers
-are defined as regular Handlebars block helpers. Let's take a look at how the built-in `each` helper works.
+Распространенный вариант использования помощников блоков - их использование для определения пользовательских итераторов. Фактически, все встроенные помощники Handlebars определяются как обычные помощники блоков Handlebars. Давайте посмотрим, как работает встроенный помощник `each`.
 
 ```handlebars
 <div class="entry">
@@ -122,7 +111,7 @@ are defined as regular Handlebars block helpers. Let's take a look at how the bu
 </div>
 ```
 
-In this case, we want to invoke the block passed to `each` once for each element in the comments Array.
+В этом случае мы хотим вызвать блок, переданный в `each`, один раз для каждого элемента в массиве комментариев.
 
 ```js
 Handlebars.registerHelper("each", function(context, options) {
@@ -136,11 +125,9 @@ Handlebars.registerHelper("each", function(context, options) {
 });
 ```
 
-In this case, we iterate over the items in the passed parameter, invoking the block once with each item. As we iterate,
-we build up a String result, and then return it.
+В этом случае мы перебираем элементы в переданном параметре, вызывая блок один раз с каждым элементом. Во время итерации мы создаем результат String, а затем возвращаем его.
 
-This pattern can be used to implement more advanced iterators. For instance, let's create an iterator that creates a
-`<ul>` wrapper, and wraps each resulting element in an `<li>.`
+Этот шаблон можно использовать для реализации более сложных итераторов. Например, давайте создадим итератор, который создает оболочку `<ul>` и помещает каждый результирующий элемент в `<li>`.
 
 ```handlebars
 {{#list nav}}
@@ -148,18 +135,18 @@ This pattern can be used to implement more advanced iterators. For instance, let
 {{/list}}
 ```
 
-You would evaluate this template using something like this as the context:
+Вы можете оценить этот шаблон, используя что-то вроде этого в качестве контекста:
 
 ```js
 {
   nav: [
-    { url: "http://www.yehudakatz.com", title: "Katz Got Your Tongue" },
-    { url: "http://www.sproutcore.com/block", title: "SproutCore Blog" }
+    { url: "http://www.yehudakatz.com", title: "Кац получил свой язык" },
+    { url: "http://www.sproutcore.com/block", title: "Блог SproutCore" }
   ];
 }
 ```
 
-The helper is similar to the original `each` helper.
+Помощник похож на оригинальный помощник `each`.
 
 ```js
 Handlebars.registerHelper("list", function(context, options) {
@@ -173,8 +160,7 @@ Handlebars.registerHelper("list", function(context, options) {
 });
 ```
 
-Using a library like underscore.js or SproutCore's runtime library could make this a bit prettier. For example, here's
-what it might look like using SproutCore's runtime library:
+Использование такой библиотеки, как underscore.js или библиотека времени выполнения SproutCore, может сделать это немного красивее. Например, вот как это может выглядеть при использовании библиотеки времени выполнения SproutCore:
 
 ```js
 Handlebars.registerHelper("list", function(context, options) {
@@ -190,10 +176,9 @@ Handlebars.registerHelper("list", function(context, options) {
 });
 ```
 
-## Conditionals
+## Условные
 
-Another common use-case for block helpers is to evaluate conditional statements. As with the iterators, Handlebars'
-built-in `if` and `unless` control structures are implemented as regular Handlebars helpers.
+Другой распространенный вариант использования помощников блоков - оценка условных операторов. Как и в случае с итераторами, встроенные в Handlebars управляющие структуры if и except реализованы как обычные помощники Handlebars.
 
 ```handlebars
 {{#if isActive}}
@@ -201,8 +186,7 @@ built-in `if` and `unless` control structures are implemented as regular Handleb
 {{/if}}
 ```
 
-Control structures typically do not change the current context, instead they decide whether or not to invoke the block
-based upon some variable.
+Структуры управления обычно не изменяют текущий контекст, вместо этого они решают, вызывать ли блок на основе некоторой переменной.
 
 ```js
 Handlebars.registerHelper("if", function(conditional, options) {
@@ -212,9 +196,7 @@ Handlebars.registerHelper("if", function(conditional, options) {
 });
 ```
 
-When writing a conditional, you will often want to make it possible for templates to provide a block of HTML that your
-helper should insert if the conditional evaluates to false. Handlebars handles this problem by providing generic `else`
-functionality to block helpers.
+При написании условного выражения вы часто хотите, чтобы шаблоны предоставляли блок HTML, который ваш помощник должен вставить, если условное выражение оценивается как ложное. Handlebars решает эту проблему, предоставляя общую функциональность else для блокировки помощников.
 
 ```handlebars
 {{#if isActive}}
@@ -224,8 +206,7 @@ functionality to block helpers.
 {{/if}}
 ```
 
-Handlebars provides the block for the `else` fragment as `options.inverse`. You do not need to check for the existence
-of the else fragment: Handlebars will detect it automatically and register a "noop" function.
+Handlebars предоставляет блок для фрагмента `else` как `options.inverse`. Вам не нужно проверять наличие фрагмента `else`: Handlebars обнаружит его автоматически и зарегистрирует функцию "noop".
 
 ```js
 Handlebars.registerHelper("if", function(conditional, options) {
@@ -237,10 +218,9 @@ Handlebars.registerHelper("if", function(conditional, options) {
 });
 ```
 
-Handlebars provides additional metadata to block helpers by attaching them as properties of the options hash. Keep
-reading for more examples.
+Handlebars предоставляет дополнительные метаданные для блокировки помощников, прикрепляя их как свойства хэша параметров. Продолжайте читать, чтобы увидеть больше примеров.
 
-Conditionals may also be chained by including the subsequent helper call within the else mustache.
+Условные выражения также могут быть связаны путем включения последующего вызова помощника в усы else.
 
 ```handlebars
 {{#if isActive}}
@@ -251,13 +231,11 @@ Conditionals may also be chained by including the subsequent helper call within 
 
 ```
 
-It is not necessary to use the same helper in subsequent calls, the unless helper could be used in the else portion as
-with any other helper. When the helper values are different, the closing mustache should match the opening helper name.
+Нет необходимости использовать один и тот же помощник в последующих вызовах, помощник if может использоваться в части else, как и любой другой помощник. Когда значения помощника различны, закрывающие усы должны соответствовать имени открывающего помощника.
 
-## Hash Arguments
+## Хеш-аргументы
 
-Like regular helpers, block helpers can accept an optional Hash as its final argument. Let's revisit the `list` helper
-and make it possible for us to add any number of optional attributes to the `<ul>` element we will create.
+Как и обычные помощники, помощники блоков могут принимать дополнительный хэш в качестве последнего аргумента. Давайте вернемся к помощнику `list` и дадим нам возможность добавлять любое количество необязательных атрибутов к элементу `<ul>`, который мы создадим.
 
 ```handlebars
 {{#list nav id="nav-bar" class="top"}}
@@ -265,9 +243,7 @@ and make it possible for us to add any number of optional attributes to the `<ul
 {{/list}}
 ```
 
-Handlebars provides the final hash as `options.hash`. This makes it easier to accept a variable number of parameters,
-while also accepting an optional Hash. If the template provides no hash arguments, Handlebars will automatically pass an
-empty object (`{}`), so you don't need to check for the existence of hash arguments.
+Handlebars предоставляет окончательный хэш как `options.hash`. Это упрощает принятие переменного числа параметров, а также принятие необязательного хэша. Если шаблон не предоставляет хеш-аргументов, Handlebars автоматически передаст пустой объект (`{}`), поэтому вам не нужно проверять наличие хеш-аргументов.
 
 ```js
 Handlebars.registerHelper("list", function(context, options) {
@@ -291,13 +267,11 @@ Handlebars.registerHelper("list", function(context, options) {
 });
 ```
 
-Hash arguments provide a powerful way to offer a number of optional parameters to a block helper without the complexity
-caused by positional arguments.
+Аргументы хеширования предоставляют мощный способ предложить ряд дополнительных параметров помощнику блока без сложности, вызванной позиционными аргументами.
 
-Block helpers can also inject private variables into their child templates. This can be useful to add extra information
-that is not in the original context data.
+Помощники блоков также могут вводить частные переменные в свои дочерние шаблоны. Это может быть полезно для добавления дополнительной информации, которой нет в исходных данных контекста.
 
-For example, when iterating over a list, you may provide the current index as a private variable.
+Например, при итерации по списку вы можете указать текущий индекс как частную переменную.
 
 ```handlebars
 {{#list array}}
@@ -327,20 +301,17 @@ Handlebars.registerHelper("list", function(context, options) {
 });
 ```
 
-Private variables provided via the `data` option are available in all descendent scopes.
+Частные переменные, предоставляемые с помощью опции `data`, доступны во всех дочерних областях.
 
-Private variables defined in parent scopes may be accessed via pathed queries. To access the `index` field of the parent
-iterator, `@../index` may be used.
+Доступ к частным переменным, определенным в родительских областях, можно получить через патченные запросы. Для доступа к полю `index` родительского итератора можно использовать `@../index`.
 
-Make sure you create a new data frame in each helper that assigns its own data. Otherwise, downstream helpers might
-unexpectedly mutate upstream variables.
+Убедитесь, что вы создали новый фрейм данных в каждом помощнике, который назначает свои собственные данные. В противном случае нижестоящие помощники могут неожиданно изменить вышестоящие переменные.
 
-Also ensure that the `data` field is defined prior to attempting to interact with an existing data object. The private
-variable behavior is condtionally compiled and some templates might not create this field.
+Также убедитесь, что поле `data` определено, прежде чем пытаться взаимодействовать с существующим объектом данных. Поведение частной переменной компилируется условно, и некоторые шаблоны могут не создавать это поле.
 
-## Block Parameters
+## Параметры блока
 
-New in Handlebars 3.0, it's possible to receive named parameters from supporting helpers.
+Новое в Handlebars 3.0 - возможность получать именованные параметры от вспомогательных помощников.
 
 ```handlebars
 {{#each users as |user userId|}}
@@ -348,10 +319,9 @@ New in Handlebars 3.0, it's possible to receive named parameters from supporting
 {{/each}}
 ```
 
-In this particular example, `user` will have the same value as the current context and `userId` will have the index
-value for the iteration.
+В этом конкретном примере `user` будет иметь то же значение, что и текущий контекст, а `userId` будет иметь значение индекса для итерации.
 
-This allows for nested helpers to avoid name conflicts that can occur with private variables.
+Это позволяет вложенным помощникам избежать конфликтов имен, которые могут возникнуть с частными переменными.
 
 ```handlebars
 {{#each users as |user userId|}}
@@ -361,20 +331,16 @@ This allows for nested helpers to avoid name conflicts that can occur with priva
 {{/each}}
 ```
 
-A number of [builtin helpers](builtin-helpers.html) support block parameters and any custom helper may provide them
-through the `blockParams` options field.
+Некоторые [встроенные помощники] (builtin-helpers.html) поддерживают параметры блоков, и любой пользовательский помощник может предоставить их через поле параметров `blockParams`.
 
-Implements a helper that allows for named variable declarations within a given block. This example would output `1 2 3`
-on render.
+Реализует помощник, который позволяет объявления именованных переменных в данном блоке. В этом примере при рендеринге будет выводиться `1 2 3`.
 
-Helpers can determine the number of block parameters referenced by the template via the `options.fn.blockParams` field,
-which is an integer count. This value represents the number of block parameters that could be referenced by the child
-template. Parameters beyond this count will never be referenced and can safely be omitted by the helper if desired. This
-is optional and any additional parameters passed to the template will be silently ignored.
+Помощники могут определить количество параметров блока, на которые ссылается шаблон, через поле `options.fn.blockParams`, которое является целым числом. Это значение представляет количество параметров блока, на которые может ссылаться дочерний шаблон.  
+На параметры, превышающие это число, никогда не будут ссылаться и при желании помощник может их безопасно опустить. Это необязательно, и любые дополнительные параметры, переданные в шаблон, будут игнорироваться.
 
-## Raw Blocks
+## Необработанные блоки
 
-Raw blocks are available for templates needing to handle unprocessed mustache blocks.
+Необработанные блоки доступны для шаблонов, требующих обработки необработанных блоков усов.
 
 <ExamplePart examplePage="/examples/raw-blocks.md" show="template"/>
 
@@ -384,7 +350,7 @@ Raw blocks are available for templates needing to handle unprocessed mustache bl
 {{{{/raw-helper}}}}
 ```
 
-will execute the helper raw-helper without interpreting the content.
+выполнит вспомогательный raw-helper без интерпретации содержимого.
 
 ```js
 Handlebars.registerHelper("raw-helper", function(options) {
