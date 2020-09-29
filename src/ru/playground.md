@@ -2,7 +2,7 @@
 layout: InteractivePlaygroundLayout
 example:
   template: |
-    {{firstname}} {{loud lastname}}
+    {{firstname}} {{lastname}}
   partials:
   preparationScript: |
     Handlebars.registerHelper('loud', function (aString) {
