@@ -3,9 +3,9 @@
 Чтобы ссылка выглядела как кнопка, используйте синтаксис
 
 ```markdown
-!button[Link Text](./link-target.html)
+!button[Текст ссылки](./link-target.html)
 ```
 
 Это отобразит следующий HTML:
 
-!button[Link Text](./link-target.html)
+!button[Текст ссылки](./link-target.html)

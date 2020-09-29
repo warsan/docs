@@ -1,58 +1,57 @@
-# (Pre-)Compilation
+# (Пред)компиляция
 
 ## `Handlebars.compile(template, options)`
 
-Compiles a template so it can be executed immediately.
+Компилирует шаблон, чтобы его можно было сразу выполнить.
 
 ```js
 const template = Handlebars.compile("{{foo}}");
 template({});
 ```
 
-Supports a variety of options that alter how the template executes.
+Поддерживает множество опций, которые изменяют способ выполнения шаблона.
 
 ::: v-pre
 
-- `data`: Set to false to disable `@data` tracking.
-- `compat`: Set to true to enable recursive field lookup.
-- `knownHelpers`: Hash containing list of helpers that are known to exist (truthy) at template execution time. Passing
-  this allows the compiler to optimize a number of cases. Builtin helpers are automatically included in this list and
-  may be omitted by setting that value to `false`.
-- `knownHelpersOnly`: Set to true to allow further optimzations based on the known helpers list.
-- `noEscape`: Set to true to not HTML escape any content.
-- `strict`: Run in strict mode. In this mode, templates will throw rather than silently ignore missing fields. This has
-  the side effect of disabling inverse operations such as `{{^foo}}{{/foo}}` unless fields are explicitly included in
-  the source object.
-- `assumeObjects`: Removes object existence checks when traversing paths. This is a subset of `strict` mode that
-  generates optimized templates when the data inputs are known to be safe.
-- `preventIndent`: By default, an indented partial-call causes the output of the whole partial being indented by the
-  same amount. This can lead to unexpected behavior when the partial writes `pre`-tags. Setting this option to `true`
-  will disable the auto-indent feature.
-- `ignoreStandalone`: Disables standalone tag removal when set to `true`. When set, blocks and partials that are on
-  their own line will not remove the whitespace on that line.
-- `explicitPartialContext`: Disables implicit context for partials. When enabled, partials that are not passed a context
-  value will execute against an empty object.
+- `data`: Установите значение `false`, чтобы отключить отслеживание `@data`.
+- `compat`: Установите значение `true`, чтобы включить рекурсивный поиск по полю.
+- `knownHelpers`: Хеш, содержащий список помощников, которые, как известно, существуют (правда) во время выполнения
+  шаблона. Передача этого позволяет компилятору оптимизировать ряд случаев. Встроенные помощники автоматически
+  включаются в этот список и могут быть опущены, если для этого значения установлено значение `false`.
+- `knownHelpersOnly`: Установите значение `true`, чтобы разрешить дальнейшую оптимизацию на основе списка известных
+  помощников.
+- `noEscape`: Установите значение `true`, чтобы HTML не экранировал содержимое.
+- `strict`: Запускаем в строгом режиме. В этом режиме шаблоны будут бросать, а не игнорировать отсутствующие поля. Это
+  имеет побочный эффект отключения обратных операций, таких как `{{^foo}}{{/foo}}`, если поля явно не включены в
+  исходный объект.
+- `assumeObjects`: Удаляет проверки существования объекта при перемещении по путям. Это подмножество `strict` режима,
+  который генерирует оптимизированные шаблоны, когда известно, что входные данные безопасны.
+- `preventIndent`: По умолчанию частичный вызов с отступом приводит к тому, что вывод всей части имеет такой же отступ.
+  Это может привести к неожиданному поведению при частичной записи тегов `pre`. Установка для этого параметра значения
+  `true` отключит функцию автоматического отступа.
+- `ignoreStandalone`: Отключает автономное удаление тегов, если установлено значение `true`. Если установлено, блоки и
+  частичные элементы, находящиеся в отдельной строке, не удаляют пробелы в этой строке.
+- `explicitPartialContext`: Отключает неявный контекст для партиалов. Если этот параметр включен, частичные данные,
+  которым не передано значение контекста, будут выполняться для пустого объекта.
 
 :::
 
 ## `Handlebars.precompile(template, options)`
 
-Precompiles a given template so it can be sent to the client and executed without compilation.
+Предварительно компилирует данный шаблон, чтобы его можно было отправить клиенту и выполнить без компиляции.
 
 ```js
 var templateSpec = Handlebars.precompile("{{foo}}");
 ```
 
-Supports all of the same options parameters as the `Handlebars.compile` method. Additionally may pass:
+Поддерживает все те же параметры, что и метод `Handlebars.compile`. Дополнительно могут пройти:
 
-- `srcName`: Passed to generate the source map for the input file. When run in this manner, the return structure is
-  `{code, map}` with `code` containing the template definition and `map` containing the source map.
-- `destName`: Optional parameter used in conjunction with `srcName` to provide a destination file name when generating
-  source maps.
+- `srcName`: Пройдёт при создании исходной карты для входного файла. При выполнении таким образом структура возврата - `{code, map}` с `code`, содержащим определение шаблона, и `map`, содержащим исходную карту.
+- `destName`: Необязательный параметр, используемый вместе с `srcName` для предоставления имени файла назначения при создании исходных карт.
 
 ## `Handlebars.template(templateSpec)`
 
-Sets up a template that was precompiled with `Handlebars.precompile`.
+Устанавливает шаблон, который был предварительно скомпилирован с помощью `Handlebars.precompile`.
 
 ```js
 var template = Handlebars.template(templateSpec);
