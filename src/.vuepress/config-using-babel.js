@@ -1,15 +1,14 @@
 /* eslint-env node */
-/* eslint-disable no-console */
+/* eslint-disable без консоли */
 import { storeHandlebarsVersionAtVuePrototype } from "./plugins/inject-handlebars-versions";
 import { interactiveExamples } from "./plugins/interactive-examples";
 import { buttonLink } from "./plugins/button-link";
 import { updateHandlebarsCliHelp } from "./plugins/update-handlebars-cli-help";
 import { useHighlightJsForCode } from "./plugins/use-highlightjs-for-code";
 
-export default {
-  base: "/",
-  locales: {
-    "/": {
+export default 
+{ base: "/",
+  locales: { "/": {
       lang: "en-US",
       title: "Handlebars",
     },
@@ -70,38 +69,37 @@ export default {
         },
         displayAllHeaders: false,
         repo: "wycats/handlebars.js",
-        lastUpdated: "Last Updated",
+        lastUpdated: "Последнее обновление",
         editLinks: true,
-        editLinkText: "Propose a change to this page!",
+        editLinkText: "Предложите изменить эту страницу!",
         docsRepo: "handlebars-lang/docs",
         docsDir: "src",
       },
-      "/ru/": {
-        selectText: "Языки",
-        label: "Русский",
-        ariaLabel: "Языки",
-        nav: [
-          { text: "Руководство по языку", link: "/ru/guide/" },
+      "/ru/": 
+      { selectText: "Языки",
+        label:      "Русский",
+        ariaLabel:  "Языки",
+        nav: 
+        [ { text: "Руководство по языку", link: "/ru/guide/" },
           { text: "Установка", link: "/ru/installation/" },
           { text: "Справочник по API", link: "/ru/api-reference/" },
           { text: "Улучшить документы", link: "/ru/contributing/" },
-          {
-            text: "Другие источники",
-            items: [
-              { text: "Старый handlebars-вебсайт", link: "https://handlebars-archive.knappi.org/" },
-              { text: "Примечания к выпуску", link: "https://github.com/wycats/handlebars.js/blob/master/release-notes.md" },
-              {
-                text: "Проблемы с ярлыком 'docs-needed'",
-                link: "https://github.com/wycats/handlebars.js/issues?q=is%3Aopen+is%3Aissue+label%3Adocs-needed",
-              },
+          { text: "Другие источники",
+            items: 
+            [ { text: "Старый handlebars-вебсайт", 
+              link: "https://handlebars-archive.knappi.org/" },
+              { text: "Примечания к выпуску", 
+              link: "https://github.com/wycats/handlebars.js/blob/master/release-notes.md" },
+              { text: "Проблемы с ярлыком 'docs-needed'", 
+              link: "https://github.com/wycats/handlebars.js/issues?q=is%3Aopen+is%3Aissue+label%3Adocs-needed" },
             ],
           },
         ],
-        sidebar: {
-          "/ru/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
+        sidebar: 
+        { "/ru/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
           "/ru/guide/": ["", "expressions.md", "partials.md", "block-helpers.md", "builtin-helpers.md", "hooks.md"],
-          "/ru/api-reference/": [
-            "",
+          "/ru/api-reference/": 
+          [ "",
             "compilation.md",
             "runtime-options.md",
             "runtime.md",
@@ -119,32 +117,32 @@ export default {
         docsRepo: "handlebars-lang/docs",
         docsDir: "src/ru",
       },
-      "/zh/": {
-        selectText: "语言",
+      "/zh/": 
+      { selectText: "语言",
         label: "中文",
         ariaLabel: "语言",
-        nav: [
+        nav: 
+        [
           { text: "语言指南", link: "/zh/guide/" },
           { text: "安装", link: "/zh/installation/" },
           { text: "API 参考", link: "/zh/api-reference/" },
           { text: "改进文档", link: "/zh/contributing/" },
-          {
-            text: "其他资源",
-            items: [
-              { text: "Handlebars 网站（旧）", link: "https://handlebars-archive.knappi.org/" },
-              { text: "发行说明", link: "https://github.com/wycats/handlebars.js/blob/master/release-notes.md" },
-              {
-                text: "带有 'docs-needed' 标签的 Issues",
-                link: "https://github.com/wycats/handlebars.js/issues?q=is%3Aopen+is%3Aissue+label%3Adocs-needed",
-              },
+          { text: "其他资源",
+            items: 
+            [ { text: "Handlebars 网站（旧）", 
+                link: "https://handlebars-archive.knappi.org/" },
+              { text: "发行说明", 
+                link: "https://github.com/wycats/handlebars.js/blob/master/release-notes.md" },
+              { text: "带有 'docs-needed' 标签的 Issues", 
+                link: "https://github.com/wycats/handlebars.js/issues?q=is%3Aopen+is%3Aissue+label%3Adocs-needed" },
             ],
           },
         ],
-        sidebar: {
-          "/zh/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
+        sidebar: 
+        { "/zh/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
           "/zh/guide/": ["", "expressions.md", "partials.md", "block-helpers.md", "builtin-helpers.md", "hooks.md"],
-          "/zh/api-reference/": [
-            "",
+          "/zh/api-reference/": 
+          [ "",
             "compilation.md",
             "runtime-options.md",
             "runtime.md",

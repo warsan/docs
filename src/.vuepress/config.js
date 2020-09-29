@@ -1,7 +1,7 @@
-/* eslint-env node */
+/* узел eslint-env */
 
-// Entry point for the vuepress-config
-// The location of this file is hard-coded in vuepress, so
+// Точка входа для vuepress-config
+// Расположение этого файла жёстко запрограммировано в vuepress, поэтому
 //
 require("@babel/register");
 module.exports = require("./config-using-babel").default;
