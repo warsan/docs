@@ -1,97 +1,90 @@
-# Partials
+# Части
 
-Handlebars allows for template reuse through partials. Partials are normal Handlebars templates that may be called
-directly by other templates.
+Handlebars allows for template reuse through partials. Partials are normal Handlebars templates that may be called directly by other templates.
 
-## Basic Partials
+## Основные части
 
-In order to use a partial, it must be registered via `Handlebars.registerPartial`.
+Чтобы использовать партиал, он должен быть зарегистрирован через `Handlebars.registerPartial`.
 
 <ExamplePart examplePage="/examples/partials/basic.md" show="preparationScript"/>
 
-This call will register the `myPartial` partial. Partials may be precompiled and the precompiled template passed into
-the second parameter.
+Этот вызов зарегистрирует партиал `myPartial`. Части могут быть предварительно скомпилированы, а предварительно скомпилированный шаблон передан во второй параметр.
 
-Calling the partial is done through the partial call syntax:
+Вызов частей выполняется с помощью синтаксиса частичного вызова:
 
 <ExamplePart examplePage="/examples/partials/basic.md" show="template"/>
 
-Will render the partial named `myPartial`. When the partial executes, it will be run under the current execution
-context.
+Будет отображать партиал с именем `myPartial`. Когда партиал выполняется, он будет запущен в текущем контексте выполнения.
 
-## Dynamic Partials
+## Динамические части
 
-It's possible to dynamically select the partial to be executed by using sub expression syntax.
+Можно динамически выбрать партиал для выполнения с помощью синтаксиса подвыражения.
 
 <ExamplePart examplePage="/examples/partials/dynamic.md" show="template"/>
 
-Will evaluate `whichPartial` and then render the partial whose name is returned by this function.
+Вычисляет `whichPartial` и затем отображает партиал, имя которого возвращается этой функцией.
 
-Subexpressions do not resolve variables so `whichPartial` must be a function. If a simple variable has the partial name,
-it's possible to resolve it via the `lookup` helper.
+Подвыражения не разрешают переменные, поэтому `whichPartial` должна быть функцией. Если простая переменная имеет частичное имя, ее можно разрешить с помощью помощника `lookup`.
 
 <ExamplePart examplePage="/examples/partials/variable.md" show="template"/>
 
-## Partial Contexts
+## Частичные контексты
 
-It's possible to execute partials on a custom context by passing in the context to the partial call.
+Можно выполнить частичное выполнение в настраиваемом контексте, передав контекст частичному вызову.
 
 <ExamplePart examplePage="/examples/partials/other-context.md" show="template"/>
 
-## Partial Parameters
+## Частичные параметры
 
-Custom data can be passed to partials through hash parameters.
+Пользовательские данные могут быть переданы частям через параметры хеширования.
 
 <ExamplePart examplePage="/examples/partials/parameters.md" show="template"/>
 
-Will set parameter to `value` when the partial runs.
+Устанавливает параметр в значение при выполнении партиала.
 
-This is particularly useful for exposing data from parent contexts to the partial:
+Это особенно полезно для предоставления данных из родительских контекстов частичному:
 
 <ExamplePart examplePage="/examples/partials/parent-context.md" show="template"/>
 
-## Partial Blocks
+## Частичные блоки
 
-The normal behavior when attempting to render a partial that is not found is for the implementation to throw an error.
-If failover is desired instead, partials may be called using the block syntax.
+Нормальное поведение при попытке визуализации не найденного партиала заключается в том, что реализация выдает ошибку.
+Если вместо этого требуется аварийное переключение, частичные вызовы могут быть вызваны с использованием синтаксиса блока.
 
 <ExamplePart examplePage="/examples/partials/failover.md" show="template"/>
 
-Which will render `Failover content` if the `myPartial` partial is not registered.
+Что будет отображать `Failover content`, если партиал `myPartial` не зарегистрирован.
 
-This block syntax may also be used to pass templates to the partial, which can be executed by the specially named
-partial, `@partial-block`. A template of
+Этот синтаксис блока также может использоваться для передачи шаблонов в партиал, который может быть выполнен с помощью специально названного партиала, `@partial-block`. Шаблон:
 
 <ExamplePart examplePage="/examples/partials/partial-block.md" show="template"/>
 
-with the `layout` partial containing
+с партиалом `layout`, содержащим
 
 <ExamplePart examplePage="/examples/partials/partial-block.md" show="partial" name="layout"/>
 
-Would render
+Оказал бы
 
 <ExamplePart examplePage="/examples/partials/partial-block.md" show="output"/>
 
-When called in this manner, the block will execute under the context of the partial at the time of the call. Depthed
-paths and block parameters operate relative to the partial block rather than the partial template.
+При таком вызове блок будет выполняться в контексте партиала во время вызова. Глубинные пути и параметры блока действуют относительно частичного блока, а не частичного шаблона.
 
 <ExamplePart examplePage="/examples/partials/partial-block-parameters.md" show="template"/>
 
-Will render `child.value` from this template, not the partial.
+Будет отображать `child.value` из этого шаблона, а не партиала.
 
-## Inline Partials
+## Встроенные части
 
-Templates may define block scoped partials via the `inline` decorator.
+Шаблоны могут определять частичные элементы с блочной областью видимости через декоратор `inline`.
 
 <ExamplePart examplePage="/examples/partials/inline.md" show="template"/>
 
-Which will render the `myPartial` partial for each child.
+Что будет отображать партиал `myPartial` для каждого дочернего элемента.
 
-Each inline partial is available to the current block and all children, including execution of other partials. This
-allows for layout templates and similar functionality:
+Каждый встроенный партиал доступен текущему блоку и всем дочерним элементам, включая выполнение других партиалов. Это позволяет использовать шаблоны макетов и аналогичные функции:
 
 <ExamplePart examplePage="/examples/partials/inline-blocks.md" show="template"/>
 
-Where the `layout` partial may be:
+Где партиал `layout` может быть:
 
 <ExamplePart examplePage="/examples/partials/inline-blocks.md" show="partial" name="layout"/>

@@ -1,202 +1,182 @@
-# Introduction
+# Вступление
 
-## What is Handlebars?
+## Что такое Handlebars?
 
-Handlebars is a simple **templating language**.
+Handlebars - это простой **язык шаблонов**.
 
-It uses a template and an input object to generate HTML or other text formats. Handlebars templates look like regular
-text with embedded Handlebars expressions.
+Он использует шаблон и входной объект для создания HTML или других текстовых форматов. Шаблоны Handlebars выглядят как обычный текст со встроенными выражениями Handlebars.
 
 <ExamplePart examplePage="/examples/simple-expressions" show="template"/>
 
-A handlebars expression is a `{{`, some contents, followed by a `}}`. When the template is executed, these expressions
-are replaced with values from an input object.
+Выражение ручки - это `{{`, некоторое содержимое, за которым следует `}}`. Когда шаблон выполняется, эти выражения заменяются значениями из входного объекта.
 
-!button[Learn More: Expressions](expressions.html)
+!button[Узнать больше: Выражения](expressions.html)
 
-## Installation
+## Установка
 
-The fastest way to test Handlebars is to load it from a _CDN_ and embed it in an HTML file.
+Самый быстрый способ проверить Handlebars - загрузить его с _CDN_ и встроить в файл HTML.
 
 <<< @/src/usage-examples/compiler-and-runtime/simple-console-out.html
 
-::: warning
+::: предупреждение
 
-This method can be used for small pages and for testing. There are several other ways to use Handlebars, when you target
-real production systems.
+Этот метод можно использовать для небольших страниц и для тестирования. Есть несколько других способов использования Handlebars, когда вы ориентируетесь на реальные производственные системы.
 
-!button[Learn more: Installation](../installation/index.md)
+!button[Узнать больше: Установка](../installation/index.md)
 
 :::
 
-# Language features
+# Особенности языка
 
-## Simple expressions
+## Простые выражения
 
-As shown before, the following template defines two Handlebars expressions
+Как показано ранее, следующий шаблон определяет два выражения Handlebars
 
 <ExamplePart examplePage="/examples/simple-expressions" show="template"/>
 
-If applied to the input object
+Если применяется к входному объекту
 
 <ExamplePart examplePage="/examples/simple-expressions" show="input"/>
 
-the expressions will be replaced by the corresponding properties. The result is then
+выражения будут заменены соответствующими свойствами. Результат тогда
 
 <ExamplePart examplePage="/examples/simple-expressions" show="output"/>
 
-## Nested input objects
+## Вложенные объекты ввода
 
-Sometimes, the input objects contains other objects or arrays. For example:
+Иногда входные объекты содержат другие объекты или массивы. Например:
 
 <ExamplePart examplePage="/examples/path-expressions-dot" show="input" />
 
-In such a case, you can use a dot-notation to gain access to the nested properties
+В таком случае вы можете использовать точечную нотацию, чтобы получить доступ к вложенным свойствам.
 
 <ExamplePart examplePage="/examples/path-expressions-dot" show="template"/>
 
-!button[Learn more: Expressions](./expressions.md)
+!button[Узнай больше: Выражения](./expressions.md)
 
-Some built-in helpers allow you to change the current context to a nested object. You can then access this object as if
-it were the root object
+Некоторые встроенные помощники позволяют изменять текущий контекст на вложенный объект. Затем вы можете получить доступ к этому объекту, как если бы это был корневой объект.
 
-## Evaluation context
+## Контекст оценки
 
-The built-in block-helpers `each` and `with` allow you to change the current evaluation context.
+Встроенные помощники блоков `each` и `with` позволяют вам изменять текущий контекст оценки.
 
-The `with`-helper dives into an object-property, giving you access to its properties
+Вспомогательная функция `with` погружается в свойство объекта, предоставляя вам доступ к его свойствам.
 
 <Flex>
 <ExamplePart examplePage="/examples/builtin-helper-with-block" show="template"/>
 <ExamplePart examplePage="/examples/builtin-helper-with-block" show="input"/>
 </Flex>
 
-The `each`-helper iterates an array, allowing to you access the properties of each object via simple handlebars
-expressions.
+Вспомогательная функция `each` выполняет итерацию по массиву, позволяя вам получить доступ к свойствам каждого объекта с помощью простых выражений ручек.
 
 <Flex>
 <ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
 <ExamplePart examplePage="/examples/builtin-helper-each-block" show="input"/>
 </Flex>
 
-!button[Learn more: Built-in helpers](./builtin-helpers.md)
+!button[Подробнее: Встроенные помощники](./builtin-helpers.md)
 
-## Template comments
+## Комментарии к шаблону
 
 ::: v-pre
 
-You can use comments in your handlebars code just as you would in your code. Since there is generally some level of
-logic, this is a good practice.
+Вы можете использовать комментарии в коде руля так же, как и в своем коде. Так как обычно существует некоторый уровень логики, это хорошая практика.
 
-The comments will not be in the resulting output. If you'd like the comments to show up. Just use html comments, and
-they will be output.
+Комментарии не будут в итоговом выводе. Если вы хотите, чтобы комментарии появлялись. Просто используйте комментарии html, и они будут выведены.
 
-Any comments that must contain `}}` or other handlebars tokens should use the `{{!-- --}}` syntax.
+Любые комментарии, которые должны содержать `}}` или другие токены дескрипторов, должны использовать синтаксис `{{!-- --}}`.
 
 :::
 
 <ExamplePart examplePage="/examples/comments" show="template"/>
 
-## Custom Helpers
+## Пользовательские помощники
 
-Handlebars helpers can be accessed from any context in a template. You can register a helper with the
-Handlebars.registerHelper method.
+Доступ к помощникам Handlebars можно получить из любого контекста шаблона. Вы можете зарегистрировать помощник с помощью метода Handlebars.registerHelper.
 
 <Flex>
 <ExamplePart examplePage="/examples/helper-simple" show="template" />
 <ExamplePart examplePage="/examples/helper-simple" show="preparationScript" />
 </Flex>
 
-Helpers receive the current context as the `this`-context of the function.
+Помощники получают текущий контекст как контекст `this` функции.
 
 <Flex>
 <ExamplePart examplePage="/examples/helper-this-context" show="template" />
 <ExamplePart examplePage="/examples/helper-this-context" show="preparationScript" />
 </Flex>
 
-## Block Helpers
+## Блок-помощники
 
-Block expressions allow you to define helpers that will invoke a section of your template with a different context than
-the current. These block helpers are identified by a `#` preceeding the helper name and require a matching closing
-mustache, `/`, of the same name. Let's consider a helper that will generate an HTML list:
+Выражения блоков позволяют вам определять помощников, которые будут вызывать раздел вашего шаблона с контекстом, отличным от текущего. Эти помощники блока идентифицируются знаком `#` перед именем помощника и требуют соответствующих закрывающих усов `/` с тем же именем. Давайте рассмотрим помощника, который будет генерировать список HTML:
 
 <ExamplePart examplePage="/examples/helper-block" show="preparationScript" />
 
-The example creates a helper named `list` to generate our HTML list. The helper receives the `people` as its first
-parameter, and an `options` hash as its second parameter. The options hash contains a property named `fn`, which you can
-invoke with a context just as you would invoke a normal Handlebars template.
+В примере создается помощник с именем `list` для создания нашего списка HTML. Помощник получает `people` в качестве первого параметра и хэш `options` в качестве второго параметра. Хэш параметров содержит свойство с именем `fn`, которое вы можете вызывать в контексте так же, как вы вызываете обычный шаблон Handlebars.
 
-When executed, the template will render:
+При выполнении шаблон отобразит:
 
 <ExamplePart examplePage="/examples/helper-block" show="output" />
 
-Block helpers have more features, such as the ability to create an `else` section (used, for instance, by the built-in
-`if` helper).
+У помощников блоков есть больше возможностей, таких как возможность создавать раздел `else` (используется, например, встроенным помощником `if`).
 
-Since the contents of a block helper are escaped when you call `options.fn(context)`, Handlebars does not escape the
-results of a block helper. If it did, inner content would be double-escaped!
+Поскольку содержимое помощника блока экранируется, когда вы вызываете `options.fn(context)`, Handlebars не экранирует результаты помощника блока. Если бы это было так, внутреннее содержимое было бы экранировано дважды!
 
-!button[Learn More: Block Helpers](block-helpers.html)
+!button[Узнать больше: Блок-помощники](block-helpers.html)
 
-## HTML Escaping
+## HTML-экранирование
 
 ::: v-pre
 
-Because it was originally designed to generate HTML, Handlebars escapes values returned by a `{{expression}}`. If you
-don't want Handlebars to escape a value, use the "triple-stash", `{{{`.
+Поскольку он изначально был разработан для генерации HTML, Handlebars экранирует значения, возвращаемые `{{выражение}}`. Если вы не хотите, чтобы Handlebars экранировал значение, используйте "тройной притон", `{{{`.
 
 :::
 
 <ExamplePart examplePage="/examples/html-escaping" show="template" />
 
-The special characters in the second line will be escaped:
+Специальные символы во второй строке будут экранированы:
 
 <ExamplePart examplePage="/examples/html-escaping" show="output" />
 
-Handlebars will not escape a `Handlebars.SafeString`. If you write a helper that generates its own HTML, you will
-usually want to return a `new Handlebars.SafeString(result)`. In such a circumstance, you will want to manually escape
-parameters.
+Handlebars не избегает `Handlebars.SafeString`. Если вы пишете помощник, который генерирует свой собственный HTML, вы обычно захотите вернуть `new Handlebars.SafeString(result)`. В таком случае вам нужно будет вручную экранировать параметры.
 
 <ExamplePart examplePage="/examples/helper-safestring" show="preparationScript" />
 
-This will escape the passed in parameters, but mark the response as safe, so Handlebars will not try to escape it even
-if the "triple-stash" is not used.
+Это позволит избежать переданных параметров, но пометить ответ как безопасный, поэтому Handlebars не будет пытаться избежать его, даже если "тройной тайник" не используется.
 
-::: warning
+::: предупреждение
 
-Handlebars does not escape JavaScript strings. Using Handlebars to generate JavaScript, such as inline event handlers,
-could potentially lead to cross-site scripting vulnerabilities.
+Handlebars не экранирует строки JavaScript. Использование Handlebars для генерации JavaScript, например встроенных обработчиков событий, потенциально может привести к уязвимостям межсайтового скриптинга.
 
 :::
 
-## Partials
+## Частичные
 
-Handlebars partials allow for code reuse by creating shared templates. You can register a partial using the
-`registerPartial`-method:
+Частичные элементы Handlebars позволяют повторно использовать код путем создания общих шаблонов. Вы можете зарегистрировать частичное использование метода `registerPartial`:
 
 <ExamplePart examplePage="/examples/partials/register" show="preparationScript" />
 
-The following template and input:
+Следующий шаблон и ввод:
 
 <Flex>
 <ExamplePart examplePage="/examples/partials/register" show="template" />
 <ExamplePart examplePage="/examples/partials/register" show="input" />
 </Flex>
 
-will then provide the following result:
+даст следующий результат:
 
 <ExamplePart examplePage="/examples/partials/register" show="output" />
 
-!button[Learn More: Partials](partials.html)
+!button[Узнать больше: Частичные](partials.html)
 
-## Built-In Helpers
+## Встроенные помощники
 
-Handlebars offers a variety of built-in helpers such as the if conditional and each iterator.
+Handlebars предлагает множество встроенных помощников, таких как условное if и каждый итератор.
 
-!button[Learn More: Built-In Helpers](builtin-helpers.html)
+!button[Узнать больше: Встроенные помощники](builtin-helpers.html)
 
-## API Reference
+## Справочник по API
 
-Handlebars offers a variety of APIs and utility methods for applications and helpers.
+Handlebars предлагает множество API-интерфейсов и служебных методов для приложений и помощников.
 
-!button[Learn More: API Reference](/api-reference/)
+!button[Узнать больше: Справочник по API](/api-reference/)

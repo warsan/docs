@@ -1,122 +1,113 @@
-# Built-in Helpers
+# Встроенные помощники
 
 ## #if
 
-You can use the `if` helper to conditionally render a block. If its argument returns `false`, `undefined`, `null`, `""`,
-`0`, or `[]`, Handlebars will not render the block.
+Вы можете использовать помощник `if` для условного рендеринга блока. Если его аргумент возвращает `false`, `undefined`, `null`, `""`, `0` или `[]`, Handlebars не будет отображать блок.
 
 <ExamplePart examplePage="/examples/builtin-helper-if-block.md" show="template" />
 
-When you pass the following input to the above template
+Когда вы передаете следующий ввод в вышеуказанный шаблон
 
 <ExamplePart examplePage="/examples/builtin-helper-if-block.md" show="input" />
 
-This will produce the result as below:
+Это даст результат, как показано ниже:
 
 <ExamplePart examplePage="/examples/builtin-helper-if-block.md" show="output" />
 
-If the input is an empty JSONObject `{}`, then `author` will become `undefined` and `if` condition fails, resulting in
-the output as follow:
+Если на входе пустой объект JSONObject `{}`, тогда `author` станет `undefined` и условие `if` не выполнится, в результате чего вывод будет следующим:
 
 ```html
 <div class="entry"></div>
 ```
 
-When using a block expression, you can specify a template section to run if the expression returns a falsy value. The
-section, marked by `else` is called an "else section".
+При использовании выражения блока вы можете указать раздел шаблона для запуска, если выражение возвращает ложное значение. Раздел, помеченный как `else`, называется "else разделом".
 
 <ExamplePart examplePage="/examples/builtin-helper-ifelse-block.md" show="template" />
 
-### Sub-Expressions
+### Подвыражения
 
-Helpers are the proposed way to add custom logic to templates. You can write any helper and use it in a sub-expression.
+Помощники - это предлагаемый способ добавления пользовательской логики в шаблоны. Вы можете написать любой помощник и использовать его в подвыражении.
 
-For example, in checking for initialization of a variable the built-in `#if` check might not be appropriate as it
-returns false for empty collections (see [Utils.isEmpty](/api-reference/utilities.html#handlebars-utils-isempty-value)).
+Например, при проверке инициализации переменной встроенная проверка `#if` может не подходить, так как она возвращает false для пустых коллекций (см. [Utils.isEmpty](/api-reference/utilities.html#handlebars-utils-isempty-value)).
 
-You could write a helper that checks for "undefined" such as:
+Вы можете написать помощника, который проверяет наличие «неопределенного», например:
 
 <ExamplePart examplePage="/examples/builtin-helper-if-subexpression.md" show="preparationScript" />
 
-Then use your helper as a sub-expression:
+Затем используйте свой помощник как подвыражение:
 
 <ExamplePart examplePage="/examples/builtin-helper-if-subexpression.md" show="template" />
 
 ## #unless
 
-You can use the `unless` helper as the inverse of the `if` helper. Its block will be rendered if the expression returns
-a falsy value.
+Вы можете использовать помощник `unless` как обратный помощнику` if`. Его блок будет отрисован, если выражение вернет ложное значение.
 
 <ExamplePart examplePage="/examples/builtin-helper-unless-block.md" show="template" />
 
-If looking up `license` under the current context returns a falsy value, Handlebars will render the warning. Otherwise,
-it will render nothing.
+Если поиск `license` в текущем контексте возвращает ложное значение, Handlebars выдаст предупреждение. В противном случае он ничего не отобразит.
 
 ## #each
 
-You can iterate over a list using the built-in `each` helper. Inside the block, you can use `this` to reference the
-element being iterated over.
+Вы можете перебирать список с помощью встроенного помощника `each`. Внутри блока вы можете использовать `this` для ссылки на повторяемый элемент.
 
 <ExamplePart examplePage="/examples/builtin-helper-each-block.md" show="template" />
 
-when used with this context:
+при использовании с этим контекстом:
 
 <ExamplePart examplePage="/examples/builtin-helper-each-block.md" show="input" />
 
-will result in:
+приведет к:
 
 <ExamplePart examplePage="/examples/builtin-helper-each-block.md" show="output" />
 
-You can use the `this` expression in any context to reference the current context.
+Вы можете использовать выражение `this` в любом контексте для ссылки на текущий контекст.
 
-You can optionally provide an `else` section which will display only when the list is empty.
+Вы можете дополнительно предоставить раздел `else`, который будет отображаться только тогда, когда список пуст.
 
 <ExamplePart examplePage="/examples/builtin-helper-eachelse-block.md" show="template" />
 
 ::: v-pre
 
-When looping through items in `each`, you can optionally reference the current loop index via `{{@index}}`.
+При просмотре элементов в `each` вы можете дополнительно ссылаться на текущий индекс цикла через `{{@index}}`.
 
 ```handlebars
 {{#each array}} {{@index}}: {{this}} {{/each}}
 ```
 
-Additionally for object iteration, `{{@key}}` references the current key name:
+Кроме того, для итерации объекта `{{@key}}` ссылается на текущее имя ключа:
 
 ```handlebars
 {{#each object}} {{@key}}: {{this}} {{/each}}
 ```
 
-The first and last steps of iteration are noted via the `@first` and `@last` variables when iterating over an array.
-When iterating over an object only the `@first` is available. Nested each blocks may access the iteration variables via
-depth based paths. To access the parent index, for example, `{{@../index}}` can be used.
+Первый и последний шаги итерации отмечаются переменными `@first` и `@last` при итерации по массиву.
+При итерации по объекту доступен только `@first`. Каждый вложенный блок может обращаться к итерационным переменным через пути на основе глубины. Например, для доступа к родительскому индексу можно использовать `{{@../index}}`.
 
 :::
 
 ## #with
 
-The `with`-helper allows you to change the evaluation context of template-part.
+Вспомогательная функция `with` позволяет вам изменить контекст оценки части шаблона.
 
 <ExamplePart examplePage="/examples/builtin-helper-with-block.md" show="template" />
 
-when used with this context:
+при использовании с этим контекстом:
 
 <ExamplePart examplePage="/examples/builtin-helper-with-block.md" show="input" />
 
-will result in:
+приведёт к:
 
 <ExamplePart examplePage="/examples/builtin-helper-with-block.md" show="output" />
 
-`with` can also be used with block parameters to define known references in the current block. The example above can be
-converted to
+`with` также может использоваться с параметрами блока для определения известных ссылок в текущем блоке. Пример выше можно преобразовать в
 
 <ExamplePart examplePage="/examples/builtin-helper-with-block-param.md" show="template" />
 
-Which allows for complex templates to potentially provide clearer code than `../` depthed references allow for.
+Это позволяет сложным шаблонам потенциально предоставлять более ясный код, чем позволяют подробные ссылки `../`.
 
 ::: v-pre
 
-You can optionally provide an `{{else}}` section which will display only when the passed value is empty.
+Вы можете дополнительно предоставить раздел `{{else}}`, который будет отображаться, только если переданное значение пусто.
 
 :::
 
@@ -127,33 +118,30 @@ You can optionally provide an `{{else}}` section which will display only when th
 
 ## lookup
 
-The `lookup` helper allows for dynamic parameter resolution using Handlebars variables.
+Помощник `lookup` позволяет динамическое разрешение параметров с помощью переменных Handlebars.
 
-This is useful for resolving values for array indexes.
+Это полезно для разрешения значений в индексах массива.
 
 <ExamplePart examplePage="/examples/builtin-helper-lookup.md" show="template" />
 
-It can also be used to lookup properties of object based on data from the input. The following is a more complex example
-that uses `lookup` in a sub-expression to change the evaluation context to another object based on a property-value.
+Его также можно использовать для поиска свойств объекта на основе данных из ввода. Ниже приведен более сложный пример, в котором `lookup` в подвыражении используется для изменения контекста оценки на другой объект на основе значения свойства.
 
 <ExamplePart examplePage="/examples/builtin-helper-lookup-dynamic-property.md" show="template" />
 
 ## log
 
-The `log` helper allows for logging of context state while executing a template.
+Помощник `log` позволяет вести журнал состояния контекста при выполнении шаблона.
 
 <ExamplePart examplePage="/examples/builtin-helper-log.md" show="template" />
 
-It delegates to `Handlebars.logger.log` which may be overridden to perform custom logging.
+Он делегирует `Handlebars.logger.log`, который может быть переопределен для выполнения настраиваемого ведения журнала.
 
-Any number of arguments may be passed to this method and all will be forwarded to the logger.
+Этому методу можно передать любое количество аргументов, и все они будут отправлены регистратору.
 
 <ExamplePart examplePage="/examples/builtin-helper-log-multiple-params.md" show="template" />
 
-The log level may be set using the level hash parameter. Supported values are debug, info, warn, and error. When
-omitted, info is the default value,
+Уровень журнала может быть установлен с помощью параметра хеширования уровня. Поддерживаемые значения: отладка, информация, предупреждение и ошибка. Если опущено, по умолчанию используется информация,
 
-Logging is conditional based on the level and to value set in `Handlebars.logger.level`, which defaults to `info`. All
-log statements at or above the current level will be output.
+Ведение журнала является условным в зависимости от уровня и значения, установленного в `Handlebars.logger.level`, которое по умолчанию равно `info`. Будут выведены все операторы журнала на текущем уровне или выше.
 
 <ExamplePart examplePage="/examples/builtin-helper-log-loglevel.md" show="template" />

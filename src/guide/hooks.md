@@ -1,34 +1,32 @@
-# Hooks
+# Хуки
 
-There are several places where you can hook into Handlebars function calls.
+Есть несколько мест, где вы можете подключиться к вызовам функции Handlebars.
 
 ## helperMissing
 
-This hook is called when a mustache or a block-statement
+Этот хук называется, когда усы или блок-заявление
 
-- a simple mustache-expression is not a registered helper AND
-- is not a property of the current evaluation context.
+- простое выражение усов не является зарегистрированным помощником AND
+- не является свойством текущего контекста оценки.
 
-you can add custom handling for those situations by registering the helper `helperMissing`:
+Вы можете добавить пользовательские обработки для этих ситуаций, зарегистрировав помощник 'helperMissing':
 
 <ExamplePart examplePage="/examples/hook-helper-missing.md" show="template" />
 <ExamplePart examplePage="/examples/hook-helper-missing.md" show="preparationScript" />
 <ExamplePart examplePage="/examples/hook-helper-missing.md" show="output" />
 
-The helper receives the same arguments and options (`hash`, `name` etc) as any custom helper or block-helper. The
-`options.name` is the name of the helper being called.
+Помощник получает те же аргументы и опции ('hash', 'имя' и т.д.), как и любой пользовательский помощник или блок-помощник. `options.name` - это имя призвания помощников.
 
-### Default behavior
+### Поведение по умолчанию
 
-If no parameters are passed to the mustache, the default behaviour is to do nothing and ignore the whole mustache
-expression or the whole block:
+Если к усам не передаются параметры, поведение по умолчанию заключается в том, чтобы ничего не делать и игнорировать всё выражение усов или весь блок:
 
 <Flex>
 <ExamplePart examplePage="/examples/hook-helper-missing-default-no-param.md" show="template" />
 <ExamplePart examplePage="/examples/hook-helper-missing-default-no-param.md" show="output" />
 </Flex>
 
-If parameter is passed to the mustache, Handlebars with throw an exception:
+Если параметр передается в ус, Handlebars сгенерируют исключение:
 
 <Flex>
 <ExamplePart examplePage="/examples/hook-helper-missing-default-param.md" show="template" />
@@ -37,24 +35,22 @@ If parameter is passed to the mustache, Handlebars with throw an exception:
 
 ## blockHelperMissing
 
-This hook is called, when a
+Этот хук вызывается, когда
 
-- block-expression calls a helper that is not registered,
-- but the name matches a property in the current evaluation context.
+- block-expression вызывает незарегистрированный помощник,
+- но имя соответствует свойству в текущем контексте оценки.
 
-You can handle this situation by registering a helper named `blockHelperMissing`.
+Вы можете справиться с этой ситуацией, зарегистрировав помощника с именем `blockHelperMissing`.
 
 <ExamplePart examplePage="/examples/hook-block-helper-missing.md" show="template" />
 <ExamplePart examplePage="/examples/hook-block-helper-missing.md" show="preparationScript" />
 <ExamplePart examplePage="/examples/hook-block-helper-missing.md" show="output" />
 
-### Default behavior
+### Поведение по умолчанию
 
-The hook will be called with the resolved property value on the current context and the `options.name` field set to the
-name of the property.
+Хук будет вызываться с разрешенным значением свойства в текущем контексте и с полем `options.name`, установленным в имя свойства.
 
-If the hook is not overridden, then the default implementation will mimic the behavior of Mustache and just call the
-block.
+Если перехватчик не переопределен, то реализация по умолчанию будет имитировать поведение Mustache и просто вызывать блок.
 
 <ExamplePart examplePage="/examples/hook-block-helper-missing-default.md" show="template" />
 <ExamplePart examplePage="/examples/hook-block-helper-missing-default.md" show="output" />
