@@ -5,7 +5,7 @@
 
 ## Приступая к работе
 
-Во-первых, вам понадобятся _Node.js и npm_. Перейдите на [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+Во-первых, вам понадобятся _Node.js и npm_. Перейдите на [https://nodejs.org/ru/download/](https://nodejs.org/ru/download/)
 чтобы узнать, как это сделать в вашей ОС.
 
 Затем установите пакет Handlebars npm, содержащий прекомпилятор.
