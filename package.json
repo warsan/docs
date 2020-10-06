@@ -48,12 +48,20 @@
         "vuepress": "^1.4.1",
         "worker-loader": "^2.0.0"
     },
-    "husky": 
-    { "hooks": { "pre-commit": "lint-staged" }},
-    "lint-staged": 
-    { "*.{js,css,json,md,vue}": 
-    [ "prettier --write", "git add" ],
-      "*.{js,vue}": [ "eslint --fix", "git add" ]
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,css,json,md,vue}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.{js,vue}": [
+            "eslint --fix",
+            "git add"
+        ]
     },
     "dependencies": {
         "axios": "^0.19.2",

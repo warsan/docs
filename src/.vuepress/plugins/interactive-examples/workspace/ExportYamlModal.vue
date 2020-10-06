@@ -1,6 +1,6 @@
 <template>
   <Modal :show="show" class="export-yaml-modal" @close="$emit('close')">
-    <template v-slot:header>Export YAML</template>
+    <template v-slot:header>Экспорт YAML</template>
     <p>
       Можно скопировать yaml-код ниже как обложку для примера страницы.
     </p>

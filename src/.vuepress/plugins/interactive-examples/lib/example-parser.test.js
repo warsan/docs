@@ -1,8 +1,8 @@
 import { ExampleParser } from "./example-parser";
 import { multilineBlock } from "../../../../../test-utils/multilineblock";
 
-describe("the example parser", () => {
-  it("should parse a simple example", () => {
+describe("парсер примера", () => {
+  it("должен разобрать простой пример", () => {
     let parser = new ExampleParser({
       template: "{{name}}\n",
       input: { name: "Erwin" }
@@ -18,7 +18,7 @@ describe("the example parser", () => {
     });
   });
 
-  it("should parse an example with an helper correctly", () => {
+  it("должен правильно разобрать пример с помощником", () => {
     let parser = new ExampleParser({
       template: "{{helper}}\n",
       // language=JavaScript
@@ -36,7 +36,7 @@ describe("the example parser", () => {
     });
   });
 
-  it("should parse an example with an partials correctly", () => {
+  it("должен правильно разобрать пример с частичными", () => {
     let parser = new ExampleParser({
       template: "{{> myPartial}}\n",
       partials: {
@@ -60,7 +60,7 @@ describe("the example parser", () => {
     });
   });
 
-  it("should treat missing input as 'null'", () => {
+  it("должен рассматривать отсутствующий ввод как 'null'", () => {
     let parser = new ExampleParser({
       template: "{{> myPartial}}\n",
       partials: {
@@ -83,7 +83,7 @@ describe("the example parser", () => {
     });
   });
 
-  it("should store errors that occur while executing handlebars", () => {
+  it("должен сохранять ошибки, возникающие при выполнении", () => {
     let parser = new ExampleParser({
       template: "{{helper}}",
       // language=JavaScript
@@ -100,7 +100,7 @@ Handlebars.registerHelper("helper", () => {
     expectErrorInExample(parsedExample, "Test-Error");
   });
 
-  it("should store errors that occur while parsing the handlebars template", () => {
+  it("должен сохранять ошибки, возникающие при разборе шаблона", () => {
     let parser = new ExampleParser({
       template: "{{helper",
       input: {}
@@ -110,11 +110,11 @@ Handlebars.registerHelper("helper", () => {
 
     expectErrorInExample(
       parsedExample,
-      "Parse error on line 1:\n{{helper\n--^\nExpecting 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 'INVALID'"
+      "Ошибка синтакс-анализа на линии 1:\n{{helper\n--^\nОжидая 'ID', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', got 'INVALID'"
     );
   });
 
-  it("should store the input, even if an error happens during the execution", () => {
+  it("должен сохранять ввод, даже если выполнится с ошибкой", () => {
     let parser = new ExampleParser({
       template: "{{helper",
       input: { someVariable: 3 }
