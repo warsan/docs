@@ -31,6 +31,7 @@ module.exports = {
     {
       files: [
         "src/usage-examples/precompilation/precompile-in-nodejs.js",
+        "src/ru/usage-examples/precompilation/precompile-in-nodejs.js",
         "src/zh/usage-examples/precompilation/precompile-in-nodejs.js"
       ],
       env: {
