@@ -114,7 +114,7 @@ export default
         lastUpdated: "Последнее обновление",
         editLinks: true,
         editLinkText: "Предложите изменить эту страницу!",
-        docsRepo: "handlebars-lang/docs",
+        docsRepo: "warsan/docs",
         docsDir: "src/ru",
       },
       "/zh/": 
