@@ -83,4 +83,4 @@ var result = Handlebars.partials["test1"]({ name: "yourname" });
 Некоторые пакеты npm могут использоваться для интеграции прекомпилятора Handlebars в вашу систему сборки. (i.e. Webpack,
 Browserify...). Взгляните на страницу интеграции:
 
-!button[Learn more: Integrations](integrations.md)
+!button[Узнать больше: Интеграции](integrations.md)
