@@ -67,7 +67,7 @@ handlebars <input> -f <output> -k each -k if -k unless
 
 ```js
 Handlebars.partials["test1"] = Handlebars.template({
-  /** insert compiled output here **/
+  /** вставить сюда скомпилированный вывод **/
 });
 ```
 
