@@ -6,8 +6,8 @@ import { buttonLink } from "./plugins/button-link";
 import { updateHandlebarsCliHelp } from "./plugins/update-handlebars-cli-help";
 import { useHighlightJsForCode } from "./plugins/use-highlightjs-for-code";
 
-export default 
-{ base: "/",
+export default { 
+  base: "/",
   locales: { "/": {
       lang: "en-US",
       title: "Handlebars",
@@ -75,12 +75,12 @@ export default
         docsRepo: "warsan/docs",
         docsDir: "src",
       },
-      "/ru/": 
-      { selectText: "Языки",
+      "/ru/": { 
+        selectText: "Языки",
         label:      "Русский",
         ariaLabel:  "Языки",
-        nav: 
-        [ { text: "Руководство по языку", link: "/ru/guide/" },
+        nav: [ 
+          { text: "Руководство по языку", link: "/ru/guide/" },
           { text: "Установка", link: "/ru/installation/" },
           { text: "Справочник по API", link: "/ru/api-reference/" },
           { text: "Улучшить документы", link: "/ru/contributing/" },
@@ -95,9 +95,9 @@ export default
             ],
           },
         ],
-        sidebar: 
-        { "/ru/installation/": ["", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
-          "/ru/guide/": ["", "expressions.md", "partials.md", "block-helpers.md", "builtin-helpers.md", "hooks.md"],
+        sidebar: { 
+          "/ru/installation/": [ "", "precompilation.md", "integrations.md", "when-to-use-handlebars.md"],
+          "/ru/guide/": [ "", "expressions.md", "partials.md", "block-helpers.md", "builtin-helpers.md", "hooks.md"],
           "/ru/api-reference/": 
           [ "",
             "compilation.md",
@@ -107,7 +107,7 @@ export default
             "data-variables.md",
             "helpers.md",
           ],
-          "/ru/contributing/": ["", "interactive-examples.md", "button-links.md"],
+          "/ru/contributing/": [ "", "dex.md", "interactive-examples.md", "button-links.md"],
         },
         displayAllHeaders: false,
         repo: "wycats/handlebars.js",

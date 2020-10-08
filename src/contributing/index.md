@@ -1,6 +1,6 @@
-# Improving the documentation
+# Улучшение документации
 
-[[toc]]
+[[toc]]<!--  -->
 
 Handlebars is an open-source project. There is no _"documentation department"_ that keeps the docs up-to-date. This
 documentation site requires your help to be a good and helpful site.
