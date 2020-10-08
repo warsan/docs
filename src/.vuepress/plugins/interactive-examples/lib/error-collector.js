@@ -18,13 +18,14 @@ export class ErrorCollector {
     if (error == null) {
       this.filesAndErrors.push({
         filePath,
-        error: { message: "Error expected, but no error found", stack: "Error expected, but no error found" }
+        error: { message: "Ожидается ошибка, но ошибок не обнаружено", 
+                 stack: "Ожидается ошибка, но ошибок не обнаружено" }
       });
     }
   }
 
   failOnErrors() {
-    console.log("Checking for errors in example");
+    console.log("Проверка на ошибки в примере");
     this.filesAndErrors.forEach(fileAndError => {
       console.error("Example " + fileAndError.filePath + " has error " + fileAndError.error.stack);
     });
@@ -32,7 +33,7 @@ export class ErrorCollector {
       let relativeErrorPaths = this.filesAndErrors.map(fileAndError =>
         path.relative(process.cwd(), fileAndError.filePath)
       );
-      throw new Error("Errors in example files found (" + relativeErrorPaths + "). See error messages above.");
+      throw new Error("Обнаружены ошибки в файлах примеров (" + relativeErrorPaths + "). См. Сообщения об ошибках выше.");
     }
     console.log("done");
   }

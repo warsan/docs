@@ -3,8 +3,7 @@
     v-if="examplePartAsString != null"
     class="handlebars-example-part"
     title="Click to try out"
-    @click="openInPlayground"
-  >
+    @click="openInPlayground">
     <span class="title">{{ title }}</span>
     <router-link class="show-in-playground" :to="normalizedPath">
       <TryoutIcon />

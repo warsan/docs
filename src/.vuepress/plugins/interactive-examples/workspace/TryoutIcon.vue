@@ -26,8 +26,8 @@
     </g>
   </svg>
 </template>
-<script>
-export default {};
+<script> 
+export default {}; 
 </script>
 <style lang="stylus" scoped>
 svg {

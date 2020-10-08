@@ -1,7 +1,7 @@
 import { limitWaitingTime, TimeoutError } from "./limit-waiting-time";
 
 describe("limitWaitingTime", () => {
-  it("should resolve if the given promise resolves", async () => {
+  it("должен разрешиться, если данное обещание разрешается", async () => {
     const timeoutCallback = jest.fn();
     const testPromise = delay(100).then(() => "a");
 
@@ -11,17 +11,17 @@ describe("limitWaitingTime", () => {
     expect(timeoutCallback).not.toHaveBeenCalled();
   });
 
-  it("should reject the promise after a timeout", async () => {
+  it("должен отклонить обещание после тайм-аута", async () => {
     const timeoutCallback = jest.fn();
     const testPromise = delay(200).then(() => "a");
 
     const resultPromise = limitWaitingTime(testPromise, 100, timeoutCallback);
 
-    await expect(resultPromise).rejects.toEqual(new TimeoutError("Timed out after 100ms"));
+    await expect(resultPromise).rejects.toEqual(new TimeoutError("Истекло время ожидания после 100ms"));
     expect(timeoutCallback).toHaveBeenCalledTimes(1);
   });
 
-  it("should reject if the given promise reject before the timeout, without calling the timeoutCallback ", async () => {
+  it("должен отклонить, если это обещание отклоняется преждевременно, без вызова timeoutCallback ", async () => {
     const timeoutCallback = jest.fn();
     const testPromise = delay(100).then(() => {
       throw new Error("b");

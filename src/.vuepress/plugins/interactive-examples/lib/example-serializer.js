@@ -8,7 +8,7 @@ export function serializeToYaml(parsedExample) {
 
 function asFrontMatterJsObject(parsedExample) {
   if (parsedExample.template == null) {
-    throw new Error("Example must have a 'template' property: " + JSON.stringify(parsedExample));
+    throw new Error("В примере должно быть свойство 'шаблон': " + JSON.stringify(parsedExample));
   }
   const exampleAsJsObject = {
     template: parsedExample.template
@@ -44,7 +44,7 @@ function asFrontMatterJsObject(parsedExample) {
     try {
       exampleAsJsObject.input = json5.parse(input);
     } catch (error) {
-      throw new Error(`Error while parsing 'input' as json5 '${input}': ` + error.message);
+      throw new Error(`Ошибка при синтаксическом анализе 'input' как json5 '${input}': ` + error.message);
     }
   }
 }

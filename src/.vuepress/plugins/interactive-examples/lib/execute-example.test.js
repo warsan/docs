@@ -2,11 +2,11 @@ import { executeExample } from "./execute-example";
 import Handlebars from "handlebars";
 
 describe("the handlebars runner", () => {
-  it("should run a simple example", () => {
+  it("следует запустить простой пример", () => {
     expect(runWithAppliedDefaultValues({ template: "{{name}}", input: '{ name: "Erwin"}' })).toEqual("Erwin");
   });
 
-  it("should register partials", () => {
+  it("должен регистрировать части", () => {
     expect(
       runWithAppliedDefaultValues({
         template: "template {{>partial}}",
@@ -16,7 +16,7 @@ describe("the handlebars runner", () => {
     ).toEqual("template partial Erwin");
   });
 
-  it("should execute the preparation-script", () => {
+  it("должен выполнить сценарий подготовки", () => {
     expect(
       runWithAppliedDefaultValues({
         template: "{{loud name}}",
@@ -27,7 +27,7 @@ describe("the handlebars runner", () => {
     ).toEqual("ERWIN");
   });
 
-  it("should throw parse errors", () => {
+  it("должен выдавать ошибки синтаксического анализа", () => {
     expect(() => runWithAppliedDefaultValues({ template: "{{loud" })).toThrow();
   });
 });

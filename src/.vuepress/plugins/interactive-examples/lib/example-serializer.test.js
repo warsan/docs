@@ -1,8 +1,8 @@
 import { serializeToYaml } from "./example-serializer";
 import { safeLoad } from "js-yaml";
 
-describe("the example-serializer", () => {
-  it("should hide empty partials and preparation-script and input", () => {
+describe("пример-сериализатор", () => {
+  it("должен скрывать пустые партиалы и сценарий подготовки и ввод", () => {
     assertYamlEquals(
       serializeToYaml({
         error: null,
@@ -19,7 +19,7 @@ template: |
     );
   });
 
-  it("should parse the input as json5", () => {
+  it("должен анализировать ввод как json5", () => {
     assertYamlEquals(
       serializeToYaml({
         error: null,
@@ -38,7 +38,7 @@ input:
     );
   });
 
-  it("should convert partial-list to an object with partial name as keys", () => {
+  it("должен преобразовать частный список в объект с частным именем в качестве ключей", () => {
     assertYamlEquals(
       serializeToYaml({
         error: null,
@@ -66,7 +66,7 @@ input:
     );
   });
 
-  it("should return yaml properties in the correct order ", () => {
+  it("должен возвращать свойства yaml в правильном порядке ", () => {
     expect(
       serializeToYaml({
         error: null,
@@ -88,16 +88,16 @@ input:
     ).toMatch(/[\S\s]*template[\S\s]*partials[\S\s]*preparationScript[\S\s]*input/);
   });
 
-  it("should handle missing input, preparationScript, partials and output", () => {
+  it("должен обработать отсутствующий ввод, подготовительный сценарий, частные данные и вывод", () => {
     assertYamlEquals(serializeToYaml({ template: "Hi there!" }), `template: 'Hi there!'`);
   });
 
-  it("should throw if template is missing", () => {
+  it("должен выбросить, если шаблон отсутствует", () => {
     expect(() => serializeToYaml({ preparationScript: "abc" })).toThrow(/must have a 'template' property/i);
   });
 
-  it("should throw if the input is not a valid json5 string", () => {
-    expect(() => serializeToYaml({ template: "", input: "[ 5" })).toThrow(/Error while parsing 'input' as json5/i);
+  it("должен выбросить, если ввод не является допустимой строкой json5", () => {
+    expect(() => serializeToYaml({ template: "", input: "[ 5" })).toThrow(/Ошибка при синтаксическом анализе 'input' как json5/i);
   });
 });
 
