@@ -24,7 +24,7 @@ npm install -g handlebars
 handlebars example.handlebars -f example.precompiled.js
 ```
 
-Включите среду выполнения Handlebars и предварительно скомпилированный javascript.
+Включаем среду выполнения Handlebars и предварительно скомпилированный javascript.
 
 <<< @/src/usage-examples/precompilation/index.html
 
@@ -54,8 +54,7 @@ handlebars <input> -f <output> -k each -k if -k unless
 ## Предварительная компиляция шаблонов внутри NodeJS
 
 Если вы хотите предварительно скомпилировать шаблоны изнутри NodeJS--без вызова «handlebars» из командной строки--это можно
-сделать с помощью Handlebars.precompile. Передайте строковый результат этой функции своим клиентам, и они, в свою очередь, смогут проанализировать
-это с Handlebars.template.
+сделать с помощью Handlebars.precompile. Передайте строковый результат этой функции своим клиентам, и они, в свою очередь, смогут проанализировать это с Handlebars.template.
 
 <<< @/src/usage-examples/precompilation/precompile-in-nodejs.js
 
@@ -67,7 +66,7 @@ handlebars <input> -f <output> -k each -k if -k unless
 
 ```js
 Handlebars.partials["test1"] = Handlebars.template({
-  /** insert compiled output here **/
+  /** вставить сюда скомпилированный вывод **/
 });
 ```
 
@@ -83,4 +82,4 @@ var result = Handlebars.partials["test1"]({ name: "yourname" });
 Некоторые пакеты npm могут использоваться для интеграции прекомпилятора Handlebars в вашу систему сборки. (i.e. Webpack,
 Browserify...). Взгляните на страницу интеграции:
 
-!button[Learn more: Integrations](integrations.md)
+!button[Узнать больше: Интеграции](integrations.md)
