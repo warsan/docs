@@ -107,7 +107,7 @@ export default {
             "data-variables.md",
             "helpers.md",
           ],
-          "/ru/contributing/": [ "", "dex.md", "interactive-examples.md", "button-links.md"],
+          "/ru/contributing/": [ "", "interactive-examples.md", "proba.md", "button-links.md"],
         },
         displayAllHeaders: false,
         repo: "wycats/handlebars.js",

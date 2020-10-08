@@ -32,7 +32,7 @@
 <ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
 ```
 
-приведет к
+приведёт к
 
 <ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
 

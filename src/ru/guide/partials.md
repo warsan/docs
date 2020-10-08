@@ -1,6 +1,6 @@
-# Части
+# Части (партиалы)
 
-Handlebars allows for template reuse through partials. Partials are normal Handlebars templates that may be called directly by other templates.
+Handlebars позволяет повторно использовать шаблон через партиалы. Частичные элементы - это обычные шаблоны Handlebars, которые могут напрямую вызываться другими шаблонами.
 
 ## Основные части
 
