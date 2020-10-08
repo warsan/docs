@@ -1,16 +1,15 @@
 /* eslint-disable */
 /*
-This is the version of the Handlebars language that has been submitted to highlight.js in
+Это версия языка Handlebars, которая была представлена в highlight.js в
 
 https://github.com/highlightjs/highlight.js/pull/2344
 
-It is currently added to the 10.1 milestone of highlight.js and may be obsolete when
-this version is used.
+В настоящее время он добавлен к вехе 10.1 highlight.js и может быть устаревшим, когда используется эта версия.
 
 Language: Handlebars
 Requires: xml.js
 Author: Robin Ward <robin.ward@gmail.com>
-Description: Matcher for Handlebars as well as EmberJS additions.
+Description: Matcher для рулей, а также дополнений EmberJS.
 Website: https://handlebarsjs.com
 Category: template
 */
@@ -27,12 +26,12 @@ export default function(hljs) {
     literal: "true false undefined null"
   };
 
-  // as defined in https://handlebarsjs.com/guide/expressions.html#literal-segments
-  // this regex matches literal segments like ' abc ' or [ abc ] as well as helpers and paths
-  // like a/b, ./abc/cde, and abc.bcd
+  // как определено в https://handlebarsjs.com/guide/expressions.html#literal-segments 
+  // это регулярное выражение сегменты литерал, как ' abc ' или [ abc ],
+  // а также помощники и пути, как a/b, ./abc/cde, и abc.bcd
   var IDENFIFIER_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+|\.|\/)+/;
 
-  // identifier followed by a equal-sign (without the equal sign)
+  // идентификатор, за которым следует знак равенства (без знака равенства)
   var HASH_PARAM_REGEX = /(".*?"|'.*?'|\[.*?\]|[^\s!"#%&'()*+,.\/;<=>@\[\\\]^`{|}~]+)(?==)/;
 
   var HELPER_NAME_OR_PATH_EXPRESSION = {
@@ -48,11 +47,11 @@ export default function(hljs) {
     illegal: /\}\}/,
     begin: /\(/,
     end: /\)/
-    // the "contains" is added below when all necessary sub-modes are defined
+    // "contains" добавляется ниже, когда определены все необходимые подрежимы
   };
 
   var HASH = {
-    // fka "attribute-assignment", parameters of the form 'key=value'
+    // fka "назначение-атрибута", параметры формы 'ключ=значение'
     className: "attr",
     illegal: /\}\}/,
     begin: HASH_PARAM_REGEX,
@@ -67,13 +66,12 @@ export default function(hljs) {
   };
 
   var BLOCK_PARAMS = {
-    // parameters of the form '{{#with x as | y |}}...{{/with}}'
+    // параметры формы '{{#with x as | y |}}...{{/with}}'
     begin: /as\s+\|/,
     keywords: { keyword: "as" },
     end: /\|/,
     contains: [
-      {
-        // define sub-mode in order to prevent highlighting of block-parameter named "as"
+      { // определить подрежим, чтобы предотвратить выделение параметра блока с именем "as"
         begin: /\w+/,
         keywords: ""
       }
@@ -91,9 +89,9 @@ export default function(hljs) {
       SUB_EXPRESSION
     ],
     returnEnd: true
-    // the property "end" is defined through inheritance when the mode is used. If depends
-    // on the surrounding mode, but "endsWithParent" does not work here (i.e. it includes the
-    // end-token of the surrounding mode)
+    // свойство "end" определяется через наследование при использовании режима.
+    // Если зависит от окружающего режима, но "ndsWithParent" здесь не работает
+    // (т.е. включает в себя конечный маркёр окружающего режима)
   };
 
   var SUB_EXPRESSION_CONTENTS = hljs.inherit(HELPER_NAME_OR_PATH_EXPRESSION, {
@@ -141,7 +139,7 @@ export default function(hljs) {
       hljs.COMMENT(/\{\{!--/, /--\}\}/),
       hljs.COMMENT(/\{\{!/, /\}\}/),
       {
-        // open raw block "{{{{raw}}}} content not evaluated {{{{/raw}}}}"
+        // открываем необработанный блок "{{{{raw}}}} контент не оценивается {{{{/ raw}}}}}"
         className: "template-tag",
         begin: /\{\{\{\{(?!\/)/,
         end: /\}\}\}\}/,
@@ -149,14 +147,14 @@ export default function(hljs) {
         starts: { end: /\{\{\{\{\//, returnEnd: true, subLanguage: "xml" }
       },
       {
-        // close raw block
+        // закрыть необработанный блок
         className: "template-tag",
         begin: /\{\{\{\{\//,
         end: /\}\}\}\}/,
         contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
       },
       {
-        // open block statement
+        // инструкция открытого блока
         className: "template-tag",
         begin: /\{\{#/,
         end: /\}\}/,
@@ -169,21 +167,21 @@ export default function(hljs) {
         keywords: "else"
       },
       {
-        // closing block statement
+        // оператор закрытия блока
         className: "template-tag",
         begin: /\{\{\//,
         end: /\}\}/,
         contains: [CLOSING_BLOCK_MUSTACHE_CONTENTS]
       },
       {
-        // template variable or helper-call that is NOT html-escaped
+        // переменная шаблона или вспомогательный вызов, который НЕ экранирован html
         className: "template-variable",
         begin: /\{\{\{/,
         end: /\}\}\}/,
         contains: [BASIC_MUSTACHE_CONTENTS]
       },
       {
-        // template variable or helper-call that is html-escaped
+        // переменная шаблона или вспомогательный вызов с экранированием html
         className: "template-variable",
         begin: /\{\{/,
         end: /\}\}/,
