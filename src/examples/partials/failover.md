@@ -3,6 +3,6 @@ layout: InteractivePlaygroundLayout
 example:
   template: |
     {{#> myPartial }}
-      Failover content
+      Отработка содержания
     {{/myPartial}}
 ---

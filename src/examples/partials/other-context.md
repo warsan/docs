@@ -6,5 +6,5 @@ example:
     myPartial: "{{information}}"
   input:
     myOtherContext:
-      information: Interesting!
+      information: Интересно!
 ---

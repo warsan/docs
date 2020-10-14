@@ -4,7 +4,7 @@ example:
   template: |
     {{> (lookup . 'myVariable') }}
   partials:
-    lookupMyPartial: Found!
+    lookupMyPartial: Нашёл!
   input:
     myVariable: lookupMyPartial
 ---

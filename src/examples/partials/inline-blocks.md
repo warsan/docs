@@ -4,10 +4,10 @@ example:
   template: |-
     {{#> layout}}
       {{#*inline "nav"}}
-        My Nav
+        Мой Nav
       {{/inline}}
       {{#*inline "content"}}
-        My Content
+        Мой контент
       {{/inline}}
     {{/layout}}
   partials:

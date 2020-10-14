@@ -3,8 +3,8 @@ layout: InteractivePlaygroundLayout
 example:
   template: |-
     {{#> layout }}
-    My Content
+    Мой контент
     {{/layout}}
   partials:
-    layout: Site Content {{> @partial-block }}
+    layout: Контент сайта {{> @partial-block }}
 ---

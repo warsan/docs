@@ -9,9 +9,9 @@ example:
     {{/each}}
   partials:
     header: |
-      {{persons.length}} persons found
+      {{persons.length}} найдено людей
     person: |
-      The person {{person.name}} is {{person.age}} years old.
+      Персоне {{person.name}} исполнилось {{person.age}} лет.
   input:
     persons:
       - name: Nils
