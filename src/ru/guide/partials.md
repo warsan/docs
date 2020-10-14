@@ -63,7 +63,7 @@ Handlebars позволяет повторно использовать шабл
 
 <ExamplePart examplePage="/examples/partials/partial-block.md" show="partial" name="layout"/>
 
-Оказал бы
+показал бы
 
 <ExamplePart examplePage="/examples/partials/partial-block.md" show="output"/>
 

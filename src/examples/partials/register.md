@@ -8,7 +8,7 @@ example:
   preparationScript: >
     Handlebars.registerPartial(
         "person", 
-        "{{person.name}} is {{person.age}} years old.\n"
+        "{{person.name}} исполнилось {{person.age}} лет.\n"
     )
   input:
     persons:

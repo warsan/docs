@@ -70,10 +70,10 @@ Handlebars.registerHelper("bold", function(options) {
 
 ```js
 {
-  title: "First Post",
+  title: "Первый пост",
   story: {
-    intro: "Before the jump",
-    body: "After the jump"
+    intro: "До перехода",
+    body: "После перехода"
   }
 }
 
@@ -358,7 +358,7 @@ Handlebars.registerHelper("raw-helper", function(options) {
 });
 ```
 
-will render
+и покажет
 
 ```
 {{bar}}
