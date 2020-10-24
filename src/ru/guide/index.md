@@ -6,7 +6,7 @@ Handlebars - это простой **язык шаблонов**.
 
 Он использует шаблон и входной объект для создания HTML или других текстовых форматов. Шаблоны Handlebars выглядят как обычный текст со встроенными выражениями Handlebars.
 
-<ExamplePart examplePage="/examples/simple-expressions" show="template"/>
+<ExamplePart examplePage="/ru/examples/simple-expressions" show="template"/>
 
 Выражение ручки - это `{{`, некоторое содержимое, за которым следует `}}`.  
 Когда шаблон выполняется, эти выражения заменяются значениями из входного объекта.
@@ -17,7 +17,7 @@ Handlebars - это простой **язык шаблонов**.
 
 Самый быстрый способ проверить Handlebars - загрузить его с _CDN_ и встроить в файл HTML.
 
-<<< @/src/usage-examples/compiler-and-runtime/simple-console-out.html
+<<< @/src/ru/usage-examples/compiler-and-runtime/simple-console-out.html
 
 ::: warning Внимание
 
@@ -34,25 +34,25 @@ Handlebars - это простой **язык шаблонов**.
 
 Как показано ранее, следующий шаблон определяет два выражения Handlebars
 
-<ExamplePart examplePage="/examples/simple-expressions" show="template"/>
+<ExamplePart examplePage="/ru/examples/simple-expressions" show="template"/>
 
 Если применяется к входному объекту
 
-<ExamplePart examplePage="/examples/simple-expressions" show="input"/>
+<ExamplePart examplePage="/ru/examples/simple-expressions" show="input"/>
 
 выражения будут заменены соответствующими свойствами с результатом
 
-<ExamplePart examplePage="/examples/simple-expressions" show="output"/>
+<ExamplePart examplePage="/ru/examples/simple-expressions" show="output"/>
 
 ## Вложенные объекты ввода
 
 Иногда входные объекты содержат другие объекты или массивы. Например:
 
-<ExamplePart examplePage="/examples/path-expressions-dot" show="input" />
+<ExamplePart examplePage="/ru/examples/path-expressions-dot" show="input" />
 
 В таком случае вы можете использовать точечную нотацию, чтобы получить доступ к вложенным свойствам.
 
-<ExamplePart examplePage="/examples/path-expressions-dot" show="template"/>
+<ExamplePart examplePage="/ru/examples/path-expressions-dot" show="template"/>
 
 !button[Узнай больше: Выражения](./expressions.md)
 
@@ -65,15 +65,15 @@ Handlebars - это простой **язык шаблонов**.
 Вспомогательная функция `with` погружается в свойство объекта, предоставляя вам доступ к его свойствам.
 
 <Flex>
-<ExamplePart examplePage="/examples/builtin-helper-with-block" show="template"/>
-<ExamplePart examplePage="/examples/builtin-helper-with-block" show="input"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-with-block" show="template"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-with-block" show="input"/>
 </Flex>
 
 Вспомогательная функция `each` выполняет итерацию по массиву, позволяя вам получить доступ к свойствам каждого объекта с помощью простых выражений ручек.
 
 <Flex>
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="input"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="template"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="input"/>
 </Flex>
 
 !button[Подробнее: Встроенные помощники](./builtin-helpers.md)
@@ -90,7 +90,7 @@ Handlebars - это простой **язык шаблонов**.
 
 :::
 
-<ExamplePart examplePage="/examples/comments" show="template"/>
+<ExamplePart examplePage="/ru/examples/comments" show="template"/>
 
 ## Пользовательские помощники
 
@@ -98,15 +98,15 @@ Handlebars - это простой **язык шаблонов**.
 Вы можете зарегистрировать помощник с помощью метода Handlebars.registerHelper.
 
 <Flex>
-<ExamplePart examplePage="/examples/helper-simple" show="template" />
-<ExamplePart examplePage="/examples/helper-simple" show="preparationScript" />
+<ExamplePart examplePage="/ru/examples/helper-simple" show="template" />
+<ExamplePart examplePage="/ru/examples/helper-simple" show="preparationScript" />
 </Flex>
 
 Помощники получают текущий контекст как контекст `this` функции.
 
 <Flex>
-<ExamplePart examplePage="/examples/helper-this-context" show="template" />
-<ExamplePart examplePage="/examples/helper-this-context" show="preparationScript" />
+<ExamplePart examplePage="/ru/examples/helper-this-context" show="template" />
+<ExamplePart examplePage="/ru/examples/helper-this-context" show="preparationScript" />
 </Flex>
 
 ## Блок-помощники
@@ -114,14 +114,14 @@ Handlebars - это простой **язык шаблонов**.
 Выражения блоков позволяют вам определять помощников, которые будут вызывать раздел вашего шаблона с контекстом, отличным от текущего. Эти помощники блока идентифицируются знаком `#` перед именем помощника и требуют соответствующих закрывающих усов `/` с тем же именем.  
 Давайте рассмотрим помощника, который будет генерировать список HTML:
 
-<ExamplePart examplePage="/examples/helper-block" show="preparationScript" />
+<ExamplePart examplePage="/ru/examples/helper-block" show="preparationScript" />
 
 В примере создается помощник с именем `list` для создания нашего списка HTML.  
 Помощник получает `people` в качестве первого параметра и хэш `options` в качестве второго параметра. Хэш параметров содержит свойство с именем `fn`, которое вы можете вызывать в контексте так же, как вы вызываете обычный шаблон Handlebars.
 
 При выполнении шаблон отобразит:
 
-<ExamplePart examplePage="/examples/helper-block" show="output" />
+<ExamplePart examplePage="/ru/examples/helper-block" show="output" />
 
 У помощников блоков есть больше возможностей, таких как возможность создавать раздел `else` (используется, например, встроенным помощником `if`).
 
@@ -138,16 +138,16 @@ Handlebars - это простой **язык шаблонов**.
 
 :::
 
-<ExamplePart examplePage="/examples/html-escaping" show="template" />
+<ExamplePart examplePage="/ru/examples/html-escaping" show="template" />
 
 Специальные символы во второй строке будут экранированы:
 
-<ExamplePart examplePage="/examples/html-escaping" show="output" />
+<ExamplePart examplePage="/ru/examples/html-escaping" show="output" />
 
 Handlebars не избегает `Handlebars.SafeString`. Если вы пишете помощник, который генерирует свой собственный HTML, вы
 обычно захотите вернуть `new Handlebars.SafeString(result)`. В таком случае вам нужно будет вручную экранировать параметры.
 
-<ExamplePart examplePage="/examples/helper-safestring" show="preparationScript" />
+<ExamplePart examplePage="/ru/examples/helper-safestring" show="preparationScript" />
 
 Это позволит избежать переданных параметров, но пометить ответ как безопасный, поэтому Handlebars не будет пытаться избежать его, даже если "тройной тайник" не используется.
 
@@ -161,20 +161,20 @@ Handlebars не экранирует строки JavaScript. Использов
 
 Частичные элементы Handlebars позволяют повторно использовать код путем создания общих шаблонов. Вы можете зарегистрировать частичное использование метода `registerPartial`:
 
-<ExamplePart examplePage="/examples/partials/register" show="preparationScript" />
+<ExamplePart examplePage="/ru/examples/partials/register" show="preparationScript" />
 
 Следующий шаблон и ввод:
 
 <Flex>
-<ExamplePart examplePage="/examples/partials/register" show="template" />
-<ExamplePart examplePage="/examples/partials/register" show="input" />
+<ExamplePart examplePage="/ru/examples/partials/register" show="template" />
+<ExamplePart examplePage="/ru/examples/partials/register" show="input" />
 </Flex>
 
 даст следующий результат:
 
-<ExamplePart examplePage="/examples/partials/register" show="output" />
+<ExamplePart examplePage="/ru/examples/partials/register" show="output" />
 
-!button[Узнать больше: Частичные](partials.html)
+!button[Узнать больше: Части](partials.html)
 
 ## Встроенные помощники
 
@@ -186,4 +186,4 @@ Handlebars предлагает множество встроенных помо
 
 Handlebars предлагает множество API-интерфейсов и служебных методов для приложений и помощников.
 
-!button[Узнать больше: Справочник по API](/api-reference/)
+!button[Узнать больше: Справочник по API](/ru/api-reference/)

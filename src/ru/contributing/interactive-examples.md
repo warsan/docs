@@ -29,35 +29,34 @@
 Компонент `<ExamplePart>` позволяет вам показать часть примера в текущем месте.
 
 ```md
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="template"/>
 ```
 
 приведёт к
 
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="template"/>
 
 Реквизит для этого компонента:
 
 - `examplePage`: путь к странице примера под папкой `src`
-- `show`: The part of the example that should be inserted into the page. Possible values are `template`, `input`, `output`, `error`, `preparationScript` and `partial`
-Часть примера, которую нужно вставить на страницу. Возможные значения: `template`, `input`, `output`, `error`, `preparationScript` и `partial`.
+- `show`: Часть примера, которую нужно вставить на страницу. Возможные значения: `template`, `input`, `output`, `error`, `preparationScript` и `partial`.
 - `name` (optional): Эта опция нужна только когда `show ="partial"`. Она определяет имя партиала, который следует вставить в пример.
 
-Компонент очень полезен, если вы хотите встроить части примера в плавный текст. Вы можете вставить входной JSON с помощью `<ExamplePart examplePage="/examples/all-features" show="input" />` и на странице появится следующий фрагмент кода:
+Компонент очень полезен, если вы хотите встроить части примера в плавный текст. Вы можете вставить входной JSON с помощью `<ExamplePart examplePage="/ru/examples/all-features" show="input" />` и на странице появится следующий фрагмент кода:
 
-<ExamplePart examplePage="/examples/all-features" show="input" />
+<ExamplePart examplePage="/ru/examples/all-features" show="input" />
 
 Затем, чтобы показать читателю шаблон, вы можете использовать `show="template"` с тем же `examplePage`.
 
-<ExamplePart examplePage="/examples/all-features" show="template" />
+<ExamplePart examplePage="/ru/examples/all-features" show="template" />
 
 Вы можете визуализировать партиал, используя, например, `show=partial` и `name=person`
 
-<ExamplePart examplePage="/examples/all-features" show="partial" name="person"/>
+<ExamplePart examplePage="/ru/examples/all-features" show="partial" name="person"/>
 
 Если у вас есть пример с помощниками, вы также можете включить сценарий подготовки:
 
-<ExamplePart examplePage="/examples/all-features" show="preparationScript" />
+<ExamplePart examplePage="/ru/examples/all-features" show="preparationScript" />
 
 ## Горизонтальная планировка
 
@@ -65,14 +64,14 @@
 
 ```md
 <Flex>
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="input"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="template"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="input"/>
 </Flex>
 ```
 
 становится
 
 <Flex>
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="template"/>
-<ExamplePart examplePage="/examples/builtin-helper-each-block" show="input"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="template"/>
+<ExamplePart examplePage="/ru/examples/builtin-helper-each-block" show="input"/>
 </Flex>

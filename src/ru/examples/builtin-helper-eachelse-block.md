@@ -5,7 +5,7 @@ example:
     {{#each paragraphs}}
     <p>{{this}}</p>
     {{else}}
-    <p class="empty">No content</p>
+    <p class="empty">Нет контента</p>
     {{/each}}
   input: {}
 ---
