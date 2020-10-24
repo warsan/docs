@@ -108,6 +108,7 @@ export default {
             "helpers.md",
           ],
           "/ru/contributing/": [ "", "interactive-examples.md", "proba.md", "button-links.md"],
+          "/ru/examples/": [ "" ],
         },
         displayAllHeaders: false,
         repo: "wycats/handlebars.js",
