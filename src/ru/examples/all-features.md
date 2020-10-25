@@ -9,7 +9,7 @@ example:
     {{/each}}
   partials:
     header: |
-      {{persons.length}} persons found
+      {{persons.length}} найдены люди
     person: |
       Персоне {{loud person.name}} исполнилось {{person.age}} лет.
   preparationScript: |
