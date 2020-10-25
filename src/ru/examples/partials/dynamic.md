@@ -5,5 +5,5 @@ example:
   preparationScript: |
     Handlebars.registerHelper('whichPartial', function(context, options) { return 'dynamicPartial' });
   partials:
-    dynamicPartial: Dynamo!
+    dynamicPartial: Динамика!
 ---

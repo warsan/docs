@@ -5,5 +5,5 @@ example:
   preparationScript: |
     Handlebars.registerPartial('myPartial', '{{prefix}}');
   input:
-    prefix: Hello
+    prefix: Привет
 ---

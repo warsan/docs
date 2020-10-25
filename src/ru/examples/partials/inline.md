@@ -3,7 +3,7 @@ layout: InteractivePlaygroundLayout
 example:
   template: |-
     {{#*inline "myPartial"}}
-      My Content
+      Мой контент
     {{/inline}}
     {{#each people}}
       {{> myPartial}}

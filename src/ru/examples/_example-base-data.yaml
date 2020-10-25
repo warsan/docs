@@ -3,15 +3,15 @@
 # Вам не обязательно использовать ту же структуру JSON, но использовать одни и те же объекты (например, люди, Дармштадт, Сан-Франциско) было бы здорово.
 # Если вам нужно использовать новые данные, добавьте их в этот файл.
 cities:
-  - name: Darmstadt
-    summary: Darmstadt is a city in <b>Hesse</b>, Germany
-    country: Germany
+  - name: Дармштадт
+    summary: Дармштадт - город в <b>Гессене</b>, Германия.
+    country: Германия
     location:
       north: 49.87
       east: 8.64
     population: 158254
-  - name: San Francisco
-    summary: San Francisco is the <b>cultural center</b> of <b>Northern California</b>
+  - name: Сан-Франциско
+    summary: Сан-Франциско - <b>культурный центр</b> <b>Северной Калифорнии</b>.
     country: USA
     location:
       north: 37.73,
@@ -21,11 +21,11 @@ people:
   - firstname: Nils
     lastname: Knappmeier
     url: https://knappi.org
-    resident-in: Darmstadt
+    resident-in: Дармштадт
   - firstname: Yehuda
     lastname: Katz
     url: https://yehudakatz.com/
-    resident-in: San Francisco
+    resident-in: Сан-Франциско
   - firstname: Carl
     lastname: Lerche
   - firstname: Alan
