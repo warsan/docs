@@ -2,7 +2,7 @@
 layout: InteractivePlaygroundLayout
 example:
   template: |
-    {{link "See Website" url}}
+    {{link "См. Веб-сайт" url}}
   preparationScript: |
     Handlebars.registerHelper("link", function(text, url) {
           var url = Handlebars.escapeExpression(url),

@@ -2,7 +2,7 @@
 layout: InteractivePlaygroundLayout
 example:
   template: |+
-    {{log 'this is a simple log output'}}
+    {{log 'это простой вывод журнала'}}
   input:
 ---
 

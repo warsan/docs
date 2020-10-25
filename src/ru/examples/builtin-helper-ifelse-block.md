@@ -6,7 +6,7 @@ example:
     {{#if author}}
     <h1>{{firstName}} {{lastName}}</h1>
     {{else}}
-    <h1>Unknown Author</h1>
+    <h1>Неизвестный автор</h1>
     {{/if}}
     </div>
   input:

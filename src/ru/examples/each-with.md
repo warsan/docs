@@ -9,11 +9,11 @@ example:
   partials:
   input:
     cities:
-      - name: Darmstadt
+      - name: Дармштадт
         location:
           north: 49.87
           east: 8.64
-      - name: San Francisco
+      - name: Сан-Франциско
         location:
           north: 37.73
           east: -122.44

@@ -10,7 +10,7 @@ example:
   input:
     city:
       name: San Francisco
-      summary: San Francisco is the <b>cultural center</b> of <b>Northern California</b>
+      summary: Сан-Франциско - <b> культурный центр </b> <b>Северной Калифорнии</b>
       location:
         north: "37.73,"
         east: -122.44

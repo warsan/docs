@@ -10,5 +10,5 @@ example:
     people:
       - firstname: Nils
       - firstname: Yehuda
-    prefix: "Hello"
+    prefix: "Привет"
 ---

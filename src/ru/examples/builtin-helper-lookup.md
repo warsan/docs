@@ -3,7 +3,7 @@ layout: InteractivePlaygroundLayout
 example:
   template: |+
     {{#each people}}
-       {{.}} lives in {{lookup ../cities @index}}
+       {{.}} живёт в {{lookup ../cities @index}}
     {{/each}}
   input:
     people:

@@ -13,5 +13,5 @@ example:
       - firstname: Nils
       - firstname: Yehuda
         creator: true
-    prefix: "Hello"
+    prefix: "Привет"
 ---
