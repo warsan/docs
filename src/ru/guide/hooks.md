@@ -42,9 +42,9 @@
 
 Вы можете справиться с этой ситуацией, зарегистрировав помощника с именем `blockHelperMissing`.
 
-<ExamplePart examplePage="/examples/hook-block-helper-missing.md" show="template" />
-<ExamplePart examplePage="/examples/hook-block-helper-missing.md" show="preparationScript" />
-<ExamplePart examplePage="/examples/hook-block-helper-missing.md" show="output" />
+<ExamplePart examplePage="ru/examples/hook-block-helper-missing.md" show="template" />
+<ExamplePart examplePage="ru/examples/hook-block-helper-missing.md" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/hook-block-helper-missing.md" show="output" />
 
 ### Поведение по умолчанию
 
@@ -52,5 +52,5 @@
 
 Если перехватчик не переопределен, то реализация по умолчанию будет имитировать поведение Mustache и просто вызывать блок.
 
-<ExamplePart examplePage="/examples/hook-block-helper-missing-default.md" show="template" />
-<ExamplePart examplePage="/examples/hook-block-helper-missing-default.md" show="output" />
+<ExamplePart examplePage="ru/examples/hook-block-helper-missing-default.md" show="template" />
+<ExamplePart examplePage="ru/examples/hook-block-helper-missing-default.md" show="output" />

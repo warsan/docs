@@ -10,37 +10,37 @@
 
 Выражения Handlebars - это некоторое содержимое, заключённое в двойные фигурные скобки `{{}}`. В приведенном ниже шаблоне `firstname` - это переменная, заключённая в двойные фигурные скобки, которая называется выражением:
 
-<ExamplePart examplePage="/examples/simple-expressions.md" show="template" />
+<ExamplePart examplePage="ru/examples/simple-expressions.md" show="template" />
 
 Если к шаблону применяется указанный ниже объект ввода, 
 
-<ExamplePart examplePage="/examples/simple-expressions.md" show="input" />
+<ExamplePart examplePage="ru/examples/simple-expressions.md" show="input" />
 
 то выражения компилируются для получения вывода следующим образом:
 
-<ExamplePart examplePage="/examples/simple-expressions.md" show="output" />
+<ExamplePart examplePage="ru/examples/simple-expressions.md" show="output" />
 
 ## Выражения пути
 
 Выражения Handlebars также могут быть путями, разделенными точками.
 
-<ExamplePart examplePage="/examples/path-expressions-dot.md" show="template" />
+<ExamplePart examplePage="ru/examples/path-expressions-dot.md" show="template" />
 
 Это выражение ищет свойство `person` во входном объекте и, в свою очередь, ищет свойства `firstname` и `lastname` внутри объекта `person`.
 
-Передав указанный ниже объект ввода в шаблон, <ExamplePart examplePage="/examples/path-expressions-dot.md" show="input" />
+Передав указанный ниже объект ввода в шаблон, <ExamplePart examplePage="ru/examples/path-expressions-dot.md" show="input" />
 
-вывод будет создан следующим образом: <ExamplePart examplePage="/examples/path-expressions-dot.md" show="output" />
+вывод будет создан следующим образом: <ExamplePart examplePage="ru/examples/path-expressions-dot.md" show="output" />
 
 Handlebars также поддерживает устаревший синтаксис `/`, поэтому вы можете написать вышеуказанный шаблон как:
 
-<ExamplePart examplePage="/examples/path-expressions-slash.md" show="template" />
+<ExamplePart examplePage="ru/examples/path-expressions-slash.md" show="template" />
 
 ## Изменение контекста
 
 Некоторые помощники, такие как `#with` и `#each`, позволяют вам погрузиться во вложенные объекты. Когда вы включаете сегменты `../` в свой путь, Handlebars вернётся обратно в родительский контекст.
 
-<ExamplePart examplePage="/examples/path-expressions-dot-dot" show="template" />
+<ExamplePart examplePage="ru/examples/path-expressions-dot-dot" show="template" />
 
 Несмотря на то, что имя печатается в контексте комментария, оно всё равно может вернуться к основному контексту (корневому объекту), чтобы получить префикс.
 
@@ -79,7 +79,7 @@ _Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>`
 
 Строки в стиле JavaScript, `"` и `'`, также могут использоваться вместо пар `[`.
 
-<ExamplePart examplePage="/examples/literal-segments.md" show="template" />
+<ExamplePart examplePage="ru/examples/literal-segments.md" show="template" />
 
 ## HTML-экранирование
 
@@ -92,11 +92,11 @@ _Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>`
 
 В приведенном ниже шаблоне вы можете узнать, как создать экранированный и необработанный вывод HTML.
 
-<ExamplePart examplePage="/examples/html-escaping.md" show="template" />
+<ExamplePart examplePage="ru/examples/html-escaping.md" show="template" />
 
 Передайте специальные символы в шаблон
 
-<ExamplePart examplePage="/examples/html-escaping.md" show="input" />
+<ExamplePart examplePage="ru/examples/html-escaping.md" show="input" />
 
 ::: v-pre
 
@@ -104,7 +104,7 @@ _Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>`
 
 :::
 
-<ExamplePart examplePage="/examples/html-escaping.md" show="output" />
+<ExamplePart examplePage="ru/examples/html-escaping.md" show="output" />
 
 ## Помощники
 
@@ -112,48 +112,48 @@ _Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>`
 
 Помощник может быть зарегистрирован во время выполнения через `Handlebars.registerHelper`, например, для того, чтобы переводить все символы строки в верхний регистр.
 
-<ExamplePart examplePage="/examples/helper-simple.md" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/helper-simple.md" show="preparationScript" />
 
 Вызов помощника Handlebars - это простой идентификатор, за которым следует ноль или более параметров (разделенных пробелом). Каждый параметр представляет собой выражение Handlebars, которое оценивается точно так же, как описано выше в разделе «Основы использования»:
 
-<ExamplePart examplePage="/examples/helper-simple.md" show="template" />
+<ExamplePart examplePage="ru/examples/helper-simple.md" show="template" />
 
 В этом случае `loud` - это имя помощника, а `lastname` - это параметр для помощника. В шаблоне свойство ввода `lastname` будет заглавными:
 
 <Flex>
-<ExamplePart examplePage="/examples/helper-simple.md" show="input" />
-<ExamplePart examplePage="/examples/helper-simple.md" show="output" />
+<ExamplePart examplePage="ru/examples/helper-simple.md" show="input" />
+<ExamplePart examplePage="ru/examples/helper-simple.md" show="output" />
 </Flex>
 
 ### Предотвращение HTML-экранирования возвращаемых значений помощника
 
 Когда ваш помощник возвращает экземпляр `Handlebars.Safestring`, возвращаемое значение не экранируется, даже если помощник вызывается с помощью `{{` вместо `{{{`. Вы должны позаботиться о том, чтобы все параметры были правильно экранированы с помощью `Handlebars.escapeExpression`.
 
-<ExamplePart examplePage="/examples/helper-safestring.md" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/helper-safestring.md" show="preparationScript" />
 
 ### Помощники с несколькими параметрами
 
 Давайте посмотрим еще один пример помощников с двумя параметрами
 
-<ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="template" />
+<ExamplePart examplePage="ru/examples/helper-multiple-parameters.md" show="template" />
 
 В этом случае Handlebars передаст помощнику ссылки два параметра: String `See Website` и значение `people.url` из предоставленного ниже входного объекта `people`.
 
-<ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="input" />
+<ExamplePart examplePage="ru/examples/helper-multiple-parameters.md" show="input" />
 
 Вспомогательная функция `link` используется для создания гиперссылки, как описано в сценарии.
 
-<ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/helper-multiple-parameters.md" show="preparationScript" />
 
 Мы получим вывод, используя входные параметры
 
-<ExamplePart examplePage="/examples/helper-multiple-parameters.md" show="output" />
+<ExamplePart examplePage="ru/examples/helper-multiple-parameters.md" show="output" />
 
 В приведенном выше примере вы можете использовать тот же помощник с динамическим текстом на основе значения `people.text`:
 
 <Flex>
-<ExamplePart examplePage="/examples/helper-dynamic-parameters.md" show="template" />
-<ExamplePart examplePage="/examples/helper-dynamic-parameters.md" show="input" />
+<ExamplePart examplePage="ru/examples/helper-dynamic-parameters.md" show="template" />
+<ExamplePart examplePage="ru/examples/helper-dynamic-parameters.md" show="input" />
 </Flex>
 
 ### Буквальные аргументы
@@ -162,14 +162,14 @@ _Whitespace_ `!` `"` `#` `%` `&` `'` `(` `)` `*` `+` `,` `.` `/` `;` `<` `=` `>`
 Поддерживаемые литералы включают числа, строки, `true`, `false`, `null` и `undefined`:
 
 <Flex>
-<ExamplePart examplePage="/examples/helper-literals" show="template" />
+<ExamplePart examplePage="ru/examples/helper-literals" show="template" />
 </Flex>
 
 ### Помощники с аргументами Hash
 
 Handlebars предоставляет помощникам дополнительные метаданные, такие как аргументы хэша, в качестве последнего параметра.
 
-<ExamplePart examplePage="/examples/helper-hash-arguments.md" show="template" />
+<ExamplePart examplePage="ru/examples/helper-hash-arguments.md" show="template" />
 
 В этом шаблоне последний параметр `href=people.url class="people"` - это хэш-аргументы, отправленные помощнику.
 
@@ -177,15 +177,15 @@ Handlebars предоставляет помощникам дополнител�
 
 Если мы передадим в шаблон указанные ниже данные, значение `person.url` можно будет получить из объекта `person`.
 
-<ExamplePart examplePage="/examples/helper-hash-arguments.md" show="input" />
+<ExamplePart examplePage="ru/examples/helper-hash-arguments.md" show="input" />
 
 Как описано во вспомогательном скрипте ниже, хеш-аргументы могут быть получены из последнего параметра `options` для дальнейшей обработки внутри помощника.
 
-<ExamplePart examplePage="/examples/helper-hash-arguments.md" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/helper-hash-arguments.md" show="preparationScript" />
 
 Вывод вышеуказанного помощника создается, как показано ниже
 
-<ExamplePart examplePage="/examples/helper-hash-arguments.md" show="output" />
+<ExamplePart examplePage="ru/examples/helper-hash-arguments.md" show="output" />
 
 Handlebars также предлагает механизм для вызова помощника с блоком шаблона. Затем помощники блоков могут вызывать этот блок ноль или более раз в любом контексте, который они выбирают.
 
@@ -196,9 +196,9 @@ Handlebars также предлагает механизм для вызова 
 Если помощник зарегистрирован под тем же именем, что и свойство входного объекта, помощник имеет приоритет над свойством input. Если вы хотите вместо этого разрешить свойство input, вы можете префикс его имени с помощью `./` Или `this` (или устаревшего `this/`)
 
 <Flex>
-<ExamplePart examplePage="/examples/helper-data-name-conflict" show="template" />
-<ExamplePart examplePage="/examples/helper-data-name-conflict" show="input" />
-<ExamplePart examplePage="/examples/helper-data-name-conflict" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/helper-data-name-conflict" show="template" />
+<ExamplePart examplePage="ru/examples/helper-data-name-conflict" show="input" />
+<ExamplePart examplePage="ru/examples/helper-data-name-conflict" show="preparationScript" />
 </Flex>
 
 ## Подвыражения

@@ -1,1 +1,1 @@
-!button[Return](./button-links)
+!button[Возврат](./button-links)
