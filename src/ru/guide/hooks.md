@@ -11,9 +11,9 @@
 
 Вы можете добавить пользовательские обработки для этих ситуаций, зарегистрировав помощник 'helperMissing':
 
-<ExamplePart examplePage="/examples/hook-helper-missing.md" show="template" />
-<ExamplePart examplePage="/examples/hook-helper-missing.md" show="preparationScript" />
-<ExamplePart examplePage="/examples/hook-helper-missing.md" show="output" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing.md" show="template" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing.md" show="preparationScript" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing.md" show="output" />
 
 Помощник получает те же аргументы и опции ('hash', 'имя' и т.д.), как и любой пользовательский помощник или блок-помощник. `options.name` - это имя призвания помощников.
 
@@ -22,15 +22,15 @@
 Если к усам не передаются параметры, поведение по умолчанию заключается в том, чтобы ничего не делать и игнорировать всё выражение усов или весь блок:
 
 <Flex>
-<ExamplePart examplePage="/examples/hook-helper-missing-default-no-param.md" show="template" />
-<ExamplePart examplePage="/examples/hook-helper-missing-default-no-param.md" show="output" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing-default-no-param.md" show="template" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing-default-no-param.md" show="output" />
 </Flex>
 
 Если параметр передается в ус, Handlebars сгенерируют исключение:
 
 <Flex>
-<ExamplePart examplePage="/examples/hook-helper-missing-default-param.md" show="template" />
-<ExamplePart examplePage="/examples/hook-helper-missing-default-param.md" show="error" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing-default-param.md" show="template" />
+<ExamplePart examplePage="ru/examples/hook-helper-missing-default-param.md" show="error" />
 </Flex>
 
 ## blockHelperMissing
